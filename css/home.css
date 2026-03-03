@@ -1,7 +1,7 @@
 body{
 margin:0;
 font-family:sans-serif;
-background:#2c1f17;
+background:#2b1f16;
 color:white;
 }
 
@@ -10,21 +10,35 @@ color:white;
 padding:20px;
 }
 
-/* NEXT PRAYER */
+/* NEXT CARD */
 .next-card{
 margin:15px;
 padding:25px;
-border-radius:20px;
-background:linear-gradient(
-135deg,#caa46a,#8b6a3d);
+border-radius:22px;
+background:linear-gradient(135deg,#d6b06b,#8b6a3d);
 color:white;
-text-align:center;
-box-shadow:0 10px 25px rgba(0,0,0,0.4);
+box-shadow:0 10px 30px rgba(0,0,0,.4);
 }
 
 .next-card h1{
-font-size:32px;
+font-size:34px;
 margin:10px 0;
+}
+
+/* PROGRESS BAR */
+.progress{
+width:100%;
+height:8px;
+background:rgba(255,255,255,.3);
+border-radius:10px;
+overflow:hidden;
+margin:10px 0;
+}
+
+#progressBar{
+height:100%;
+width:0%;
+background:white;
 }
 
 /* GRID */
@@ -44,5 +58,4 @@ text-align:center;
 
 .box h3{
 color:#e5c27a;
-margin-top:5px;
 }
