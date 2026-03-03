@@ -97,3 +97,46 @@ opacity:0.7;
 color:#caa46a;
 opacity:1;
 }
+
+
+/*prayer card */
+.prayer-card{
+margin:15px;
+padding:18px;
+background:#4a3728;
+border-radius:18px;
+display:flex;
+justify-content:space-between;
+align-items:center;
+box-shadow:0 5px 15px rgba(0,0,0,0.4);
+}
+
+.left p{
+margin:3px 0;
+color:#ddd;
+}
+
+.left h2{
+margin:5px 0;
+color:#e2c27a;
+}
+
+.divider{
+width:1px;
+height:70px;
+background:#777;
+}
+
+.right{
+text-align:right;
+}
+
+.right .next{
+color:#ccc;
+}
+
+#nextPrayer{
+color:#e2c27a;
+margin:5px 0;
+font-size:20px;
+}
