@@ -59,3 +59,31 @@ text-align:center;
 .box h3{
 color:#e5c27a;
 }
+
+/*prayer grid*/
+.prayer-list{
+margin:15px;
+background:#4a3728;
+border-radius:18px;
+overflow:hidden;
+}
+
+.prayer-row{
+display:flex;
+justify-content:space-between;
+padding:18px;
+border-bottom:1px solid rgba(255,255,255,.1);
+font-size:18px;
+}
+
+.prayer-row:last-child{
+border-bottom:none;
+}
+
+.prayer-row span{
+color:#ddd;
+}
+
+.prayer-row b{
+color:#e5c27a;
+}
