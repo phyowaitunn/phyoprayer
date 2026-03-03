@@ -6,9 +6,49 @@ color:white;
 }
 
 /* HEADER */
-.header{
+/* =====================
+   PREMIUM HEADER
+===================== */
+
+.premium-header{
 text-align:center;
-padding:20px 15px;
+padding:35px 20px 30px;
+background:linear-gradient(
+135deg,
+#5a3f2b,
+#2b1f16
+);
+border-bottom-left-radius:30px;
+border-bottom-right-radius:30px;
+box-shadow:0 8px 25px rgba(0,0,0,.4);
+}
+
+/* LOGO */
+.logo{
+font-size:40px;
+margin-bottom:8px;
+}
+
+/* APP NAME */
+.app-name{
+margin:0;
+font-size:24px;
+font-weight:700;
+color:#e5c27a;
+}
+
+/* GREETING */
+.greeting{
+margin-top:8px;
+font-size:16px;
+color:#fff;
+}
+
+/* DATE */
+.date{
+margin-top:4px;
+font-size:14px;
+color:#ddd;
 }
 
 /* NEXT CARD */
