@@ -1,0 +1,69 @@
+body{
+margin:0;
+font-family:sans-serif;
+background:#2b1f16;
+color:white;
+padding-bottom:80px;
+}
+
+/* HEADER */
+.header{
+padding:20px;
+text-align:center;
+}
+
+/* LIST */
+.prayer-list{
+margin:15px;
+background:#4a3728;
+border-radius:18px;
+overflow:hidden;
+}
+
+.row{
+display:flex;
+justify-content:space-between;
+padding:18px;
+border-bottom:1px solid rgba(255,255,255,.1);
+font-size:18px;
+}
+
+.row:last-child{
+border-bottom:none;
+}
+
+.row span{
+color:#ddd;
+}
+
+.row b{
+color:#e5c27a;
+}
+
+/* NAVIGATION */
+.bottom-nav{
+position:fixed;
+bottom:0;
+width:100%;
+height:65px;
+background:#2b1f16;
+display:flex;
+justify-content:space-around;
+align-items:center;
+box-shadow:0 -5px 20px rgba(0,0,0,.4);
+}
+
+.nav-item{
+text-align:center;
+text-decoration:none;
+color:#aaa;
+font-size:12px;
+}
+
+.nav-item.active{
+color:#e5c27a;
+}
+
+.icon{
+font-size:22px;
+}
