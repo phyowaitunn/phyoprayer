@@ -10,3 +10,5 @@ slides[i].classList.add("active");
 function start(){
 window.location.href="home.html";
 }
+
+
