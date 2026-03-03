@@ -83,20 +83,6 @@ object-fit:cover;
 display:block;
 }
 
-/* arrows */
-.nav{
-position:absolute;
-top:50%;
-transform:translateY(-50%);
-background:rgba(0,0,0,0.4);
-color:white;
-border:none;
-font-size:30px;
-padding:10px;
-}
-
-.prev{ left:10px; }
-.next{ right:10px; }
 
 /* START BUTTON */
 .startBtn{
