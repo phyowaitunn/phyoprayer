@@ -1,0 +1,99 @@
+body{
+margin:0;
+font-family:sans-serif;
+background:#3b2a1f;
+color:white;
+}
+
+/* HEADER */
+.header{
+display:flex;
+justify-content:space-between;
+padding:20px;
+}
+
+/* CARD */
+.card{
+background:#4a3728;
+margin:15px;
+padding:20px;
+border-radius:15px;
+}
+
+.time{
+text-align:right;
+}
+
+/* MENU GRID */
+.menu{
+display:grid;
+grid-template-columns:repeat(4,1fr);
+gap:15px;
+padding:15px;
+text-align:center;
+}
+
+.item{
+text-decoration:none;
+color:white;
+}
+
+.item p{
+margin-top:5px;
+font-size:13px;
+}
+
+.item::before{
+content:"";
+display:block;
+width:70px;
+height:70px;
+margin:auto;
+background:#5a4433;
+border-radius:50%;
+margin-bottom:8px;
+}
+
+/* ARTICLES */
+.title{
+padding-left:15px;
+}
+
+.articles{
+display:flex;
+overflow-x:auto;
+gap:10px;
+padding:15px;
+}
+
+.article{
+min-width:160px;
+height:110px;
+background:#5a4433;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+}
+
+/* BOTTOM NAV */
+.bottom{
+position:fixed;
+bottom:0;
+width:100%;
+background:#2b1f16;
+display:flex;
+justify-content:space-around;
+padding:12px 0;
+}
+
+.bottom div{
+text-align:center;
+font-size:14px;
+opacity:0.7;
+}
+
+.bottom .active{
+color:#caa46a;
+opacity:1;
+}
