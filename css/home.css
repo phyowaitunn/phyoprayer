@@ -87,3 +87,25 @@ color:#ddd;
 .prayer-row b{
 color:#e5c27a;
 }
+
+*/nav menu*/
+.bottom-nav{
+position:fixed;
+bottom:0;
+width:100%;
+background:#2b1f16;
+display:flex;
+justify-content:space-around;
+padding:10px 0;
+box-shadow:0 -5px 15px rgba(0,0,0,.4);
+}
+
+.nav-item{
+text-align:center;
+font-size:14px;
+color:#aaa;
+}
+
+.nav-item.active{
+color:#e5c27a;
+}
