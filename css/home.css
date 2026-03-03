@@ -109,3 +109,14 @@ color:#aaa;
 .nav-item.active{
 color:#e5c27a;
 }
+
+.nav-item{
+text-align:center;
+font-size:14px;
+color:#aaa;
+text-decoration:none;
+}
+
+.nav-item p{
+margin:0;
+}
