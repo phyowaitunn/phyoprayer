@@ -1,1 +1,55 @@
+body{
+margin:0;
+font-family:sans-serif;
+background:#3b2a1f;
+color:white;
+text-align:center;
+}
 
+.center{
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+height:100vh;
+}
+
+.loader{
+width:40px;
+height:40px;
+border:5px solid #ccc;
+border-top:5px solid gold;
+border-radius:50%;
+animation:spin 1s linear infinite;
+}
+
+@keyframes spin{
+100%{transform:rotate(360deg);}
+}
+
+.slide{
+display:none;
+height:80vh;
+justify-content:center;
+align-items:center;
+font-size:30px;
+}
+
+.active{
+display:flex;
+}
+
+.menu{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+padding:20px;
+}
+
+.menu a{
+background:#4a3728;
+padding:20px;
+color:white;
+text-decoration:none;
+border-radius:10px;
+}
