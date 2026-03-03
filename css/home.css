@@ -1,142 +1,48 @@
 body{
 margin:0;
 font-family:sans-serif;
-background:#3b2a1f;
+background:#2c1f17;
 color:white;
 }
 
 /* HEADER */
 .header{
-display:flex;
-justify-content:space-between;
 padding:20px;
 }
 
-/* CARD */
-.card{
-background:#4a3728;
+/* NEXT PRAYER */
+.next-card{
 margin:15px;
-padding:20px;
-border-radius:15px;
+padding:25px;
+border-radius:20px;
+background:linear-gradient(
+135deg,#caa46a,#8b6a3d);
+color:white;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
 }
 
-.time{
-text-align:right;
+.next-card h1{
+font-size:32px;
+margin:10px 0;
 }
 
-/* MENU GRID */
-.menu{
+/* GRID */
+.prayer-grid{
 display:grid;
-grid-template-columns:repeat(4,1fr);
+grid-template-columns:repeat(2,1fr);
 gap:15px;
 padding:15px;
-text-align:center;
 }
 
-.item{
-text-decoration:none;
-color:white;
-}
-
-.item p{
-margin-top:5px;
-font-size:13px;
-}
-
-.item::before{
-content:"";
-display:block;
-width:70px;
-height:70px;
-margin:auto;
-background:#5a4433;
-border-radius:50%;
-margin-bottom:8px;
-}
-
-/* ARTICLES */
-.title{
-padding-left:15px;
-}
-
-.articles{
-display:flex;
-overflow-x:auto;
-gap:10px;
-padding:15px;
-}
-
-.article{
-min-width:160px;
-height:110px;
-background:#5a4433;
-border-radius:12px;
-display:flex;
-align-items:center;
-justify-content:center;
-}
-
-/* BOTTOM NAV */
-.bottom{
-position:fixed;
-bottom:0;
-width:100%;
-background:#2b1f16;
-display:flex;
-justify-content:space-around;
-padding:12px 0;
-}
-
-.bottom div{
-text-align:center;
-font-size:14px;
-opacity:0.7;
-}
-
-.bottom .active{
-color:#caa46a;
-opacity:1;
-}
-
-
-/*prayer card */
-.prayer-card{
-margin:15px;
-padding:18px;
+.box{
 background:#4a3728;
-border-radius:18px;
-display:flex;
-justify-content:space-between;
-align-items:center;
-box-shadow:0 5px 15px rgba(0,0,0,0.4);
+padding:20px;
+border-radius:15px;
+text-align:center;
 }
 
-.left p{
-margin:3px 0;
-color:#ddd;
-}
-
-.left h2{
-margin:5px 0;
-color:#e2c27a;
-}
-
-.divider{
-width:1px;
-height:70px;
-background:#777;
-}
-
-.right{
-text-align:right;
-}
-
-.right .next{
-color:#ccc;
-}
-
-#nextPrayer{
-color:#e2c27a;
-margin:5px 0;
-font-size:20px;
+.box h3{
+color:#e5c27a;
+margin-top:5px;
 }
