@@ -1,6 +1,20 @@
 const lat=5.4141;
 const lon=100.3288;
 
+function greeting(){
+let h=new Date().getHours();
+
+let text="Assalamu Alaikum";
+
+if(h<12) text="Good Morning ☀️";
+else if(h<18) text="Good Afternoon 🌤";
+else text="Good Evening 🌙";
+
+document.getElementById("greeting").innerText=text;
+}
+
+greeting();
+
 fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&method=3`)
 .then(res=>res.json())
 .then(data=>{
@@ -8,14 +22,13 @@ fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&metho
 let t=data.data.timings;
 let d=data.data.date;
 
-document.getElementById("todayDate")
-.innerText=d.readable;
+document.getElementById("todayDate").innerText=d.readable;
 
-document.getElementById("fajr").innerText=t.Fajr;
-document.getElementById("dhuhr").innerText=t.Dhuhr;
-document.getElementById("asr").innerText=t.Asr;
-document.getElementById("maghrib").innerText=t.Maghrib;
-document.getElementById("isha").innerText=t.Isha;
+fajr.innerText=t.Fajr;
+dhuhr.innerText=t.Dhuhr;
+asr.innerText=t.Asr;
+maghrib.innerText=t.Maghrib;
+isha.innerText=t.Isha;
 
 let prayers=[
 ["Fajr",t.Fajr],
@@ -26,7 +39,7 @@ let prayers=[
 ];
 
 let now=new Date();
-let nextName="",nextTime="";
+let nextName,nextTime,target;
 
 for(let p of prayers){
 
@@ -39,27 +52,30 @@ pt.setMinutes(time[1]);
 if(pt>now){
 nextName=p[0];
 nextTime=p[1];
+target=pt;
 break;
 }
 }
 
-document.getElementById("nextPrayer")
-.innerText=`${nextName} - ${nextTime}`;
+nextPrayer.innerText=
+`${nextName} • ${nextTime}`;
 
 setInterval(()=>{
-let time=nextTime.split(":");
-
-let target=new Date();
-target.setHours(time[0]);
-target.setMinutes(time[1]);
 
 let diff=target-new Date();
 
 let h=Math.floor(diff/3600000);
 let m=Math.floor(diff/60000)%60;
+let s=Math.floor(diff/1000)%60;
 
-document.getElementById("countdown")
-.innerText=`Starts in ${h}h ${m}m`;
+countdown.innerText=
+`${h}h ${m}m ${s}s remaining`;
+
+let total=6*60*60*1000;
+let progress=100-(diff/total*100);
+
+document.getElementById("progressBar")
+.style.width=progress+"%";
 
 },1000);
 
