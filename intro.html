@@ -3,38 +3,44 @@
 <head>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 <link rel="stylesheet" href="css/style.css">
-<title>Welcome</title>
 </head>
 
 <body>
 
-<div class="slides">
+<div class="slider">
 
 <div class="slide active">
 <img src="images/intro1.jpg">
-<h2>Notifications</h2>
 </div>
 
 <div class="slide">
 <img src="images/intro2.jpg">
-<h2>Prayer Guide</h2>
 </div>
 
 <div class="slide">
 <img src="images/intro3.jpg">
-<h2>Prayer Time</h2>
 </div>
 
 <div class="slide">
 <img src="images/intro4.jpg">
-<h2>AI-Quran</h2>
 </div>
 
+<button class="nav prev" onclick="prev()">❮</button>
+<button class="nav next" onclick="next()">❯</button>
+
+<!-- DOTS -->
+<div class="dots">
+<span class="dot active"></span>
+<span class="dot"></span>
+<span class="dot"></span>
+<span class="dot"></span>
 </div>
 
-<button class="startBtn" onclick="startApp()">
+<a href="home.html" class="startBtn">
 Let's Start
-</button>
+</a>
+
+</div>
 
 <script src="js/app.js"></script>
 
