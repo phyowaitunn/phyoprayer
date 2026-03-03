@@ -111,3 +111,27 @@ text-decoration:none;
 border-radius:10px;
 font-size:18px;
 }
+
+
+/* DOT INDICATOR */
+
+.dots{
+position:absolute;
+bottom:100px;
+width:100%;
+text-align:center;
+}
+
+.dot{
+height:10px;
+width:10px;
+margin:5px;
+background:#bbb;
+border-radius:50%;
+display:inline-block;
+}
+
+.dot.active{
+background:white;
+transform:scale(1.3);
+}
