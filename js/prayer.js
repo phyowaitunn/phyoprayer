@@ -118,3 +118,47 @@ setInterval(updateCountdown,1000);
 .catch(err=>{
 console.log("Prayer API Error:",err);
 });
+
+
+function checkAzan(){
+
+const now = new Date();
+
+const current =
+now.getHours().toString().padStart(2,'0') + ":" +
+now.getMinutes().toString().padStart(2,'0');
+
+const prayers = {
+
+Fajr:document.getElementById("fajr").innerText,
+Dhuhr:document.getElementById("dhuhr").innerText,
+Asr:document.getElementById("asr").innerText,
+Maghrib:document.getElementById("maghrib").innerText,
+Isha:document.getElementById("isha").innerText
+
+};
+
+for(let p in prayers){
+
+if(prayers[p] === current){
+
+// play azan
+document.getElementById("azanSound").play();
+
+// show notification
+if(Notification.permission === "granted"){
+
+new Notification("Azan Time",{
+body:p + " prayer time has started",
+icon:"icon.png"
+});
+
+}
+
+}
+
+}
+
+}
+
+setInterval(checkAzan,60000);
