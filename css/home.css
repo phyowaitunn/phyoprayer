@@ -53,18 +53,7 @@ left:50%;
 transform:translateX(-50%);
 }
 
-/* SMALL SIGMA WAVE */
 
-.header-wave{
-position:absolute;
-bottom:0;
-width:100%;
-height:35px;
-}
-
-.header-wave path{
-fill:#2b1a11;
-}
 
 /* SECOND NEW STYLE */
 
