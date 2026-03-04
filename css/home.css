@@ -4,8 +4,92 @@ font-family:sans-serif;
 background:#2b1f16;
 color:white;
 }
+/* NEW-STYLE-HEADER-START */
+/* ULTRA HEADER */
 
+.ultra-header{
+position:relative;
+text-align:center;
+padding:40px 10px 70px;
+background:linear-gradient(135deg,#6b442a,#2b1a11);
+overflow:hidden;
+}
 
+/* TITLE */
+
+.app-title{
+font-size:30px;
+font-weight:700;
+color:#f2d08b;
+
+text-shadow:
+0 4px 10px rgba(0,0,0,0.6),
+0 0 15px rgba(242,208,139,0.6);
+
+z-index:2;
+position:relative;
+}
+
+/* FLOATING MOON */
+
+.moon{
+font-size:26px;
+position:absolute;
+left:50%;
+transform:translateX(-50%);
+top:10px;
+
+animation:moonFloat 5s ease-in-out infinite;
+}
+
+@keyframes moonFloat{
+
+0%{transform:translate(-50%,0);}
+50%{transform:translate(-50%,10px);}
+100%{transform:translate(-50%,0);}
+
+}
+
+/* SIGMA WAVE */
+
+.header-wave{
+position:absolute;
+bottom:0;
+left:0;
+width:100%;
+height:60px;
+}
+
+.header-wave path{
+fill:#2b1a11;
+}
+
+/* GLOW BACKGROUND */
+
+.ultra-header::before{
+content:"";
+position:absolute;
+top:-100px;
+left:-100px;
+width:300px;
+height:300px;
+
+background:radial-gradient(
+circle,
+rgba(255,200,120,0.3),
+transparent 70%
+);
+
+animation:rotateGlow 10s linear infinite;
+}
+
+@keyframes rotateGlow{
+
+0%{transform:rotate(0deg);}
+100%{transform:rotate(360deg);}
+
+}
+/* NEW-STYLE-HEADER-END */
 
 /* HEADER CONTAINER */
 .app-header{
