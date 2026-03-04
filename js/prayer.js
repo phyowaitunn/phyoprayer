@@ -65,44 +65,4 @@ row.classList.add("active");
 
 
 
-// remove old highlight
-document.querySelectorAll(".prayer-row")
-.forEach(r => r.classList.remove("active"));
 
-// add highlight
-let highlight = document.getElementById(
-"row-" + nextName.toLowerCase()
-);
-
-if(highlight){
-highlight.classList.add("active");
-}
-
-/* COUNTDOWN */
-
-function updateCountdown(){
-
-let now = new Date();
-let diff = target - now;
-
-let h = Math.floor(diff / 3600000);
-let m = Math.floor((diff % 3600000) / 60000);
-let s = Math.floor((diff % 60000) / 1000);
-
-document.getElementById("countdown").innerText =
-h + "h " + m + "m " + s + "s remaining";
-
-}
-
-updateCountdown();
-setInterval(updateCountdown,1000);
-
-});
-
-
-/* highlight next prayer */
-let id = "row-" + nextName.toLowerCase();
-let row = document.getElementById(id);
-if(row){
-row.classList.add("active");
-}
