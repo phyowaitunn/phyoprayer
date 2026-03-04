@@ -1,8 +1,29 @@
-.settings-container{
+/* SAME BACKGROUND AS HOME */
+
+.app-bg{
+
+background:linear-gradient(
+180deg,
+#4b2f1c,
+#1c120b
+);
+
+min-height:100vh;
+color:white;
+
+font-family:sans-serif;
+
+}
+
+/* PAGE */
+
+.settings-page{
 
 padding:20px;
 
 }
+
+/* TITLE */
 
 .settings-title{
 
@@ -12,17 +33,9 @@ margin-bottom:20px;
 
 }
 
-.setting-item{
+/* CARD */
 
-display:flex;
-justify-content:space-between;
-align-items:center;
-
-padding:15px;
-
-margin-bottom:10px;
-
-border-radius:15px;
+.settings-card{
 
 background:linear-gradient(
 145deg,
@@ -30,89 +43,58 @@ background:linear-gradient(
 #2a1a11
 );
 
-color:#fff;
+border-radius:20px;
+
+padding:15px;
 
 box-shadow:
-6px 6px 15px rgba(0,0,0,0.6);
+10px 10px 30px rgba(0,0,0,0.6);
 
 }
 
-.setting-item select{
+/* ROW */
 
-background:#2b1a11;
-color:#fff;
+.setting-row{
+
+display:flex;
+justify-content:space-between;
+align-items:center;
+
+padding:14px 10px;
+
+border-bottom:1px solid rgba(255,255,255,0.05);
+
+font-size:16px;
+
+}
+
+/* REMOVE LAST BORDER */
+
+.setting-row:last-child{
+border-bottom:none;
+}
+
+/* SELECT */
+
+select{
+
+background:#2a1a11;
+color:white;
+
 border:none;
-padding:5px;
-border-radius:6px;
+
+padding:5px 10px;
+
+border-radius:8px;
 
 }
+
+/* LINKS */
 
 .link a{
 
-color:#fff;
+color:#f2d08b;
 text-decoration:none;
-
-}
-
-/* SWITCH */
-
-.switch{
-
-position:relative;
-display:inline-block;
-width:40px;
-height:20px;
-
-}
-
-.switch input{
-
-display:none;
-
-}
-
-.slider{
-
-position:absolute;
-cursor:pointer;
-
-top:0;
-left:0;
-right:0;
-bottom:0;
-
-background:#555;
-border-radius:20px;
-
-}
-
-.slider:before{
-
-position:absolute;
-content:"";
-
-height:16px;
-width:16px;
-
-left:2px;
-bottom:2px;
-
-background:white;
-border-radius:50%;
-
-transition:0.3s;
-
-}
-
-input:checked + .slider{
-
-background:#f2d08b;
-
-}
-
-input:checked + .slider:before{
-
-transform:translateX(20px);
 
 }
 
@@ -120,9 +102,12 @@ transform:translateX(20px);
 
 .developer{
 
-margin-top:30px;
+margin-top:25px;
+
 text-align:center;
+
 color:#aaa;
+
 font-size:14px;
 
 }
