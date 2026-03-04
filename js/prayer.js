@@ -79,3 +79,11 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 });
+
+
+/* highlight next prayer */
+let id = "row-" + nextName.toLowerCase();
+let row = document.getElementById(id);
+if(row){
+row.classList.add("active");
+}
