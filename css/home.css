@@ -5,130 +5,71 @@ background:#2b1f16;
 color:white;
 }
 
-
-/* SECOND NEW STYLE */
-/* SMALL HEADER */
+/* COMPACT HEADER */
 
 .ultra-header{
 position:relative;
-padding:10px 10px 25px;
+padding:8px 10px 18px;
 text-align:center;
 
-background:linear-gradient(
-135deg,
-#6b442a,
-#2b1a11
-);
-
-overflow:hidden;
+background:linear-gradient(135deg,#6b442a,#2b1a11);
 }
 
 /* TITLE */
 
 .app-title{
-font-size:20px;
+font-size:22px;
 font-weight:700;
 color:#f2d08b;
 
+animation:titleGlow 3s infinite alternate;
+
 text-shadow:
-0 2px 6px rgba(0,0,0,0.6),
-0 0 6px rgba(242,208,139,0.3);
+0 2px 6px rgba(0,0,0,0.6);
+}
+
+/* TITLE ANIMATION */
+
+@keyframes titleGlow{
+
+0%{
+text-shadow:
+0 0 5px rgba(242,208,139,0.3),
+0 2px 6px rgba(0,0,0,0.6);
+}
+
+100%{
+text-shadow:
+0 0 15px rgba(242,208,139,0.8),
+0 2px 6px rgba(0,0,0,0.6);
+}
+
 }
 
 /* DATE */
 
 .header-info{
 font-size:12px;
-margin-top:3px;
+margin-top:2px;
 color:#ddd;
 }
 
-/* MOON ICON */
+/* MOON */
 
 .moon{
 font-size:16px;
-position:absolute;
-top:2px;
-left:50%;
-transform:translateX(-50%);
-}
+margin-bottom:2px;
 
-/* WAVE SMALL */
-
-.header-wave{
-position:absolute;
-bottom:-15px;
-width:100%;
-height:25px;
-}
-
-.header-wave path{
-fill:#2b1a11;
-}
-/* SECOND NEW STYLE */
-
-/* NEW-STYLE-HEADER-START */
-/* ULTRA HEADER */
-
-.ultra-header{
-position:relative;
-text-align:center;
-padding:40px 10px 70px;
-background:linear-gradient(135deg,#6b442a,#2b1a11);
-overflow:hidden;
-}
-
-/* TITLE */
-
-.app-title{
-font-size:30px;
-font-weight:700;
-color:#f2d08b;
-
-text-shadow:
-0 4px 10px rgba(0,0,0,0.6),
-0 0 15px rgba(242,208,139,0.6);
-
-z-index:2;
-position:relative;
-}
-
-/* FLOATING MOON */
-
-.moon{
-font-size:26px;
-position:absolute;
-left:50%;
-transform:translateX(-50%);
-top:10px;
-
-animation:moonFloat 5s ease-in-out infinite;
+animation:moonFloat 4s infinite ease-in-out;
 }
 
 @keyframes moonFloat{
 
-0%{transform:translate(-50%,0);}
-50%{transform:translate(-50%,10px);}
-100%{transform:translate(-50%,0);}
+0%{transform:translateY(0);}
+50%{transform:translateY(3px);}
+100%{transform:translateY(0);}
 
 }
-
-/* SIGMA WAVE */
-
-.header-wave{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:60px;
-}
-
-.header-wave path{
-fill:#2b1a11;
-}
-
-
-/* NEW-STYLE-HEADER-END */
 
 
 
