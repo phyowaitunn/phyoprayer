@@ -111,5 +111,21 @@ Loading...
   
 <script src="js/prayer.js"></script>
 
+<script id="date_script">
+
+const dateElement = document.getElementById("todayDate");
+
+const now = new Date();
+
+dateElement.innerText =
+now.toLocaleDateString("en-MY",{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+});
+
+</script>
+  
 </body>
 </html>
