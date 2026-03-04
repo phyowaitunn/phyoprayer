@@ -5,10 +5,63 @@ background:#2b1f16;
 color:white;
 }
 
-/* HEADER */
-/* =====================
-   PREMIUM HEADER
-===================== */
+
+
+/* HEADER CONTAINER */
+.app-header{
+position:relative;
+text-align:center;
+padding:30px 10px 20px;
+background:linear-gradient(135deg,#5a3b27,#2b1a11);
+overflow:hidden;
+}
+
+/* TITLE */
+
+.app-title{
+color:#f2d08b;
+font-size:28px;
+font-weight:700;
+letter-spacing:1px;
+position:relative;
+z-index:2;
+   
+text-shadow:
+0 2px 5px rgba(0,0,0,0.6),
+0 0 10px rgba(242,208,139,0.4);
+}
+
+/* 3D GLOW EFFECT */
+
+.header-glow{
+position:absolute;
+width:200%;
+height:200%;
+top:-50%;
+left:-50%;
+
+background:radial-gradient(
+circle,
+rgba(255,200,120,0.2) 0%,
+transparent 60%
+);
+
+animation:headerGlow 6s infinite linear;
+}
+
+/* ANIMATION */
+
+@keyframes headerGlow{
+
+0%{
+transform:rotate(0deg);
+}
+
+100%{
+transform:rotate(360deg);
+}
+
+}
 
 /* =====================
    3D SIGMA HEADER
