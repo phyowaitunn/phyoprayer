@@ -59,6 +59,19 @@ document.getElementById("nextPrayer").innerText =
 nextName + " • " + nextTime;
 
 
+// remove old highlight
+document.querySelectorAll(".prayer-row")
+.forEach(r => r.classList.remove("active"));
+
+// add highlight
+let highlight = document.getElementById(
+"row-" + nextName.toLowerCase()
+);
+
+if(highlight){
+highlight.classList.add("active");
+}
+
 /* COUNTDOWN */
 
 function updateCountdown(){
