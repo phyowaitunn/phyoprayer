@@ -1,66 +1,49 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Settings</title>
-<link rel="stylesheet" href="style/settings.css">
+<link rel="stylesheet" href="style.css">
 </head>
 
-<body>
+<body class="app-bg">
 
-<div class="settings-container">
+<div class="settings-page">
 
-<h2 class="settings-title">Settings</h2>
+<h2 class="settings-title">⚙ Settings</h2>
 
-<!-- THEME -->
+<div class="settings-card">
 
-<div class="setting-item">
+<div class="setting-row">
 <span>🌙 Day / Night Mode</span>
-<label class="switch">
-<input type="checkbox" id="themeToggle">
-<span class="slider"></span>
-</label>
+<input type="checkbox">
 </div>
 
-<!-- LANGUAGE -->
-
-<div class="setting-item">
+<div class="setting-row">
 <span>🌐 Language</span>
 
-<select id="language">
-<option value="en">English</option>
-<option value="ms">Malay</option>
-<option value="id">Indonesia</option>
+<select>
+<option>English</option>
+<option>Malay</option>
+<option>Indonesia</option>
 </select>
 
 </div>
 
-<!-- AZAN NOTIFICATION -->
-
-<div class="setting-item">
+<div class="setting-row">
 <span>🔔 Azan Notification</span>
-
-<label class="switch">
-<input type="checkbox" id="azanToggle">
-<span class="slider"></span>
-</label>
-
+<input type="checkbox">
 </div>
 
-<!-- QIBLA COMPASS -->
-
-<div class="setting-item link">
+<div class="setting-row link">
 <a href="qibla.html">🧭 Compass Guide</a>
 </div>
 
-<!-- ABOUT -->
-
-<div class="setting-item link">
-<a href="#">ℹ️ About the App</a>
+<div class="setting-row link">
+<a href="#">ℹ About the App</a>
 </div>
 
-<!-- DEVELOPER -->
+</div>
 
 <div class="developer">
 
@@ -70,8 +53,6 @@ Developed by
 </div>
 
 </div>
-
-<script src="settings.js"></script>
 
 </body>
 </html>
