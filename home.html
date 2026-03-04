@@ -140,6 +140,17 @@ link.classList.add("active");
 });
 
 </script>
+
+<script>
+
+if(Notification.permission !== "granted"){
+
+Notification.requestPermission();
+
+}
+
+</script>
+  
   <script src="js/theme.js"></script>
   <script src="js/language.js"></script>
   <audio id="azanSound" src="audio/azan.mp3"></audio>
