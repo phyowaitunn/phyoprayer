@@ -78,6 +78,20 @@ background:white;
 }
 
 
+.row.active{
+background:linear-gradient(
+90deg,
+rgba(255,215,130,0.25),
+rgba(255,215,130,0.05)
+);
+
+border-left:4px solid #e7c27a;
+
+transform:scale(1.02);
+
+transition:0.3s;
+}
+
 /* NEXT PRAYER CARD */
 
 .next-card{
