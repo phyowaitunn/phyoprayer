@@ -5,11 +5,11 @@ background:#2b1f16;
 color:white;
 }
 /* SECOND NEW STYLE */
-/* HEADER */
+/* COMPACT HEADER */
 
 .ultra-header{
 position:relative;
-padding:40px 10px 80px;
+padding:18px 10px 40px;
 text-align:center;
 
 background:linear-gradient(
@@ -24,89 +24,47 @@ overflow:hidden;
 /* TITLE */
 
 .app-title{
-font-size:30px;
+font-size:22px;
 color:#f2d08b;
 font-weight:700;
 
 text-shadow:
-0 4px 12px rgba(0,0,0,0.6),
-0 0 15px rgba(242,208,139,0.5);
+0 3px 8px rgba(0,0,0,0.6),
+0 0 10px rgba(242,208,139,0.4);
 }
 
-/* LOCATION + DATE */
+/* DATE */
 
 .header-info{
-margin-top:10px;
-color:#f1d18a;
-font-size:14px;
-opacity:0.9;
+margin-top:5px;
+font-size:13px;
+color:#ddd;
 }
 
-/* MOON FLOAT */
+/* MOON */
 
 .moon{
-font-size:26px;
+font-size:20px;
 position:absolute;
-top:8px;
+top:2px;
 left:50%;
 transform:translateX(-50%);
-
-animation:moonFloat 5s ease-in-out infinite;
 }
 
-@keyframes moonFloat{
-
-0%{transform:translate(-50%,0);}
-50%{transform:translate(-50%,10px);}
-100%{transform:translate(-50%,0);}
-
-}
-
-/* SIGMA WAVE */
+/* SMALL SIGMA WAVE */
 
 .header-wave{
 position:absolute;
 bottom:0;
 width:100%;
-height:60px;
+height:35px;
 }
 
 .header-wave path{
 fill:#2b1a11;
 }
 
-/* LIGHT GLOW */
-
-.ultra-header::before{
-
-content:"";
-position:absolute;
-
-width:350px;
-height:350px;
-
-top:-120px;
-left:-120px;
-
-background:radial-gradient(
-circle,
-rgba(255,200,120,0.3),
-transparent 70%
-);
-
-animation:glowRotate 12s linear infinite;
-
-}
-
-@keyframes glowRotate{
-
-0%{transform:rotate(0deg);}
-100%{transform:rotate(360deg);}
-
-}
-
 /* SECOND NEW STYLE */
-
 
 /* NEW-STYLE-HEADER-START */
 /* ULTRA HEADER */
