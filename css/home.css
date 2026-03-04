@@ -77,6 +77,43 @@ width:0%;
 background:white;
 }
 
+/* NEXT PRAYER */
+.next-card{
+margin:15px;
+padding:25px;
+border-radius:20px;
+background:linear-gradient(
+135deg,#caa46a,#8b6a3d);
+color:white;
+text-align:center;
+box-shadow:0 10px 25px rgba(0,0,0,0.4);
+}
+
+.next-card h1{
+font-size:32px;
+margin:10px 0;
+}
+
+/* GRID */
+.prayer-grid{
+display:grid;
+grid-template-columns:repeat(2,1fr);
+gap:15px;
+padding:15px;
+}
+
+.box{
+background:#4a3728;
+padding:20px;
+border-radius:15px;
+text-align:center;
+}
+
+.box h3{
+color:#e5c27a;
+margin-top:5px;
+
+
 /* GRID */
 .prayer-grid{
 display:grid;
