@@ -7,6 +7,17 @@ fetch(`https://api.aladhan.com/v1/timings?latitude=${lat}&longitude=${lon}&metho
 
 let t = data.data.timings;
 
+/* fill prayer times */
+
+document.getElementById("fajr").innerText = t.Fajr;
+document.getElementById("dhuhr").innerText = t.Dhuhr;
+document.getElementById("asr").innerText = t.Asr;
+document.getElementById("maghrib").innerText = t.Maghrib;
+document.getElementById("isha").innerText = t.Isha;
+
+
+/* detect next prayer */
+
 let prayers = [
 ["Fajr", t.Fajr],
 ["Dhuhr", t.Dhuhr],
@@ -16,47 +27,42 @@ let prayers = [
 ];
 
 let now = new Date();
-
 let nextName = "";
 let nextTime = "";
 let target = null;
 
-for (let i = 0; i < prayers.length; i++) {
+for (let p of prayers) {
 
-let time = prayers[i][1].split(":");
+let time = p[1].split(":");
 
 let pt = new Date();
-pt.setHours(parseInt(time[0]));
-pt.setMinutes(parseInt(time[1]));
+pt.setHours(time[0]);
+pt.setMinutes(time[1]);
 pt.setSeconds(0);
 
 if (pt > now) {
-nextName = prayers[i][0];
-nextTime = prayers[i][1];
+nextName = p[0];
+nextTime = p[1];
 target = pt;
 break;
 }
 
 }
 
-/* if after Isha → next prayer is Fajr tomorrow */
-if (!target) {
+/* highlight row */
 
-let time = prayers[0][1].split(":");
+document.querySelectorAll(".prayer-row")
+.forEach(r => r.classList.remove("active"));
 
-target = new Date();
-target.setDate(target.getDate()+1);
-target.setHours(parseInt(time[0]));
-target.setMinutes(parseInt(time[1]));
-target.setSeconds(0);
+let row = document.getElementById("row-" + nextName.toLowerCase());
 
-nextName = prayers[0][0];
-nextTime = prayers[0][1];
-
+if(row){
+row.classList.add("active");
 }
 
-document.getElementById("nextPrayer").innerText =
-nextName + " • " + nextTime;
+});
+
+
 
 
 // remove old highlight
