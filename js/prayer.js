@@ -19,23 +19,39 @@ let now = new Date();
 
 let nextName = "";
 let nextTime = "";
-let target;
+let target = null;
 
-for (let p of prayers) {
+for (let i = 0; i < prayers.length; i++) {
 
-let time = p[1].split(":");
+let time = prayers[i][1].split(":");
 
 let pt = new Date();
-pt.setHours(time[0]);
-pt.setMinutes(time[1]);
+pt.setHours(parseInt(time[0]));
+pt.setMinutes(parseInt(time[1]));
 pt.setSeconds(0);
 
 if (pt > now) {
-nextName = p[0];
-nextTime = p[1];
+nextName = prayers[i][0];
+nextTime = prayers[i][1];
 target = pt;
 break;
 }
+
+}
+
+/* if after Isha → next prayer is Fajr tomorrow */
+if (!target) {
+
+let time = prayers[0][1].split(":");
+
+target = new Date();
+target.setDate(target.getDate()+1);
+target.setHours(parseInt(time[0]));
+target.setMinutes(parseInt(time[1]));
+target.setSeconds(0);
+
+nextName = prayers[0][0];
+nextTime = prayers[0][1];
 
 }
 
@@ -43,27 +59,23 @@ document.getElementById("nextPrayer").innerText =
 nextName + " • " + nextTime;
 
 
-/* COUNTDOWN + PROGRESS */
+/* COUNTDOWN */
 
-setInterval(() => {
+function updateCountdown(){
 
-let diff = target - new Date();
+let now = new Date();
+let diff = target - now;
 
 let h = Math.floor(diff / 3600000);
-let m = Math.floor(diff / 60000) % 60;
-let s = Math.floor(diff / 1000) % 60;
+let m = Math.floor((diff % 3600000) / 60000);
+let s = Math.floor((diff % 60000) / 1000);
 
 document.getElementById("countdown").innerText =
 h + "h " + m + "m " + s + "s remaining";
 
-/* progress bar */
+}
 
-let total = 6 * 60 * 60 * 1000;
-let progress = 100 - (diff / total * 100);
-
-document.getElementById("progressBar").style.width =
-progress + "%";
-
-}, 1000);
+updateCountdown();
+setInterval(updateCountdown,1000);
 
 });
