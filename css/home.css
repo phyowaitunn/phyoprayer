@@ -11,7 +11,7 @@ color:white;
 
 .ultra-header{
 position:relative;
-padding:10px 10px 20px;
+padding:10px 10px 25px;
 text-align:center;
 
 background:linear-gradient(
@@ -130,143 +130,7 @@ fill:#2b1a11;
 
 /* NEW-STYLE-HEADER-END */
 
-/* HEADER CONTAINER */
-.app-header{
-position:relative;
-text-align:center;
-padding:30px 10px 20px;
-background:linear-gradient(135deg,#5a3b27,#2b1a11);
-overflow:hidden;
-}
 
-/* TITLE */
-
-.app-title{
-color:#f2d08b;
-font-size:28px;
-font-weight:700;
-letter-spacing:1px;
-position:relative;
-z-index:2;
-   
-text-shadow:
-0 2px 5px rgba(0,0,0,0.6),
-0 0 10px rgba(242,208,139,0.4);
-}
-
-/* 3D GLOW EFFECT */
-
-.header-glow{
-position:absolute;
-width:200%;
-height:200%;
-top:-50%;
-left:-50%;
-
-background:radial-gradient(
-circle,
-rgba(255,200,120,0.2) 0%,
-transparent 60%
-);
-
-animation:headerGlow 6s infinite linear;
-}
-
-/* ANIMATION */
-
-@keyframes headerGlow{
-
-0%{
-transform:rotate(0deg);
-}
-
-100%{
-transform:rotate(360deg);
-}
-
-}
-
-/* =====================
-   3D SIGMA HEADER
-===================== */
-
-.premium-header{
-position:relative;
-text-align:center;
-padding:25px 15px 60px;
-background:linear-gradient(
-135deg,
-#5c3d28,
-#2b1f16
-);
-color:white;
-overflow:hidden;
-}
-
-/* APP NAME */
-.app-name{
-margin:0;
-font-size:20px;
-font-weight:700;
-color:#e5c27a;
-}
-
-/* GREETING */
-.greeting{
-margin-top:5px;
-font-size:14px;
-}
-
-/* DATE */
-.date{
-margin-top:3px;
-font-size:13px;
-color:#ddd;
-}
-
-/* SVG CURVE */
-.header-curve{
-position:absolute;
-bottom:0;
-left:0;
-width:100%;
-height:50px;
-}
-
-.header-curve path{
-fill:#2b1f16;
-}
-
-/* PROGRESS BAR */
-.progress{
-width:100%;
-height:6px;
-background:#ffffff30;
-border-radius:10px;
-overflow:hidden;
-margin:8px 0;
-}
-
-#progressBar{
-height:100%;
-width:0%;
-background:white;
-}
-
-
-.row.active{
-background:linear-gradient(
-90deg,
-rgba(255,215,130,0.25),
-rgba(255,215,130,0.05)
-);
-
-border-left:4px solid #e7c27a;
-
-transform:scale(1.02);
-
-transition:0.3s;
-}
 
 /* NEXT PRAYER CARD */
 
