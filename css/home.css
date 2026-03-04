@@ -7,11 +7,11 @@ color:white;
 
 
 /* SECOND NEW STYLE */
-/* COMPACT HEADER */
+/* SMALL HEADER */
 
 .ultra-header{
 position:relative;
-padding:18px 10px 40px;
+padding:10px 10px 25px;
 text-align:center;
 
 background:linear-gradient(
@@ -26,35 +26,45 @@ overflow:hidden;
 /* TITLE */
 
 .app-title{
-font-size:22px;
-color:#f2d08b;
+font-size:20px;
 font-weight:700;
+color:#f2d08b;
 
 text-shadow:
-0 3px 8px rgba(0,0,0,0.6),
-0 0 10px rgba(242,208,139,0.4);
+0 2px 6px rgba(0,0,0,0.6),
+0 0 6px rgba(242,208,139,0.3);
 }
 
 /* DATE */
 
 .header-info{
-margin-top:5px;
-font-size:13px;
+font-size:12px;
+margin-top:3px;
 color:#ddd;
 }
 
-/* MOON */
+/* MOON ICON */
 
 .moon{
-font-size:20px;
+font-size:16px;
 position:absolute;
 top:2px;
 left:50%;
 transform:translateX(-50%);
 }
 
+/* WAVE SMALL */
 
+.header-wave{
+position:absolute;
+bottom:-15px;
+width:100%;
+height:25px;
+}
 
+.header-wave path{
+fill:#2b1a11;
+}
 /* SECOND NEW STYLE */
 
 /* NEW-STYLE-HEADER-START */
