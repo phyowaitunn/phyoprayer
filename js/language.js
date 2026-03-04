@@ -4,30 +4,25 @@ en:{
 home:"Home",
 prayer:"Prayer",
 quran:"Quran",
-settings:"Settings",
-nextPrayer:"Next Prayer"
+settings:"Settings"
 },
 
 ms:{
 home:"Laman",
 prayer:"Solat",
 quran:"Quran",
-settings:"Tetapan",
-nextPrayer:"Solat Seterusnya"
+settings:"Tetapan"
 },
 
 id:{
 home:"Beranda",
 prayer:"Sholat",
 quran:"Quran",
-settings:"Pengaturan",
-nextPrayer:"Sholat Berikutnya"
+settings:"Pengaturan"
 }
 
 };
 
-
-// load saved language
 function applyLanguage(){
 
 const lang = localStorage.getItem("lang") || "en";
@@ -44,8 +39,6 @@ el.innerText = translations[lang][key];
 
 }
 
-
-// change language
 function changeLanguage(lang){
 
 localStorage.setItem("lang",lang);
@@ -54,6 +47,4 @@ applyLanguage();
 
 }
 
-
-// run when page loads
 document.addEventListener("DOMContentLoaded",applyLanguage);
