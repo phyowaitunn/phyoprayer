@@ -126,31 +126,7 @@ height:60px;
 fill:#2b1a11;
 }
 
-/* GLOW BACKGROUND */
 
-.ultra-header::before{
-content:"";
-position:absolute;
-top:-100px;
-left:-100px;
-width:300px;
-height:300px;
-
-background:radial-gradient(
-circle,
-rgba(255,200,120,0.3),
-transparent 70%
-);
-
-animation:rotateGlow 10s linear infinite;
-}
-
-@keyframes rotateGlow{
-
-0%{transform:rotate(0deg);}
-100%{transform:rotate(360deg);}
-
-}
 /* NEW-STYLE-HEADER-END */
 
 /* HEADER CONTAINER */
