@@ -161,30 +161,61 @@ opacity:0.9;
 
 /*prayer grid*/
 .prayer-list{
-margin:15px;
-background:#4a3728;
-border-radius:18px;
-overflow:hidden;
+margin:20px;
+padding:10px;
+border-radius:25px;
+
+background:linear-gradient(
+145deg,
+#3b271a,
+#2a1a11
+);
+
+box-shadow:
+10px 10px 30px rgba(0,0,0,0.6),
+-5px -5px 15px rgba(255,255,255,0.05);
 }
 
 .prayer-row{
 display:flex;
 justify-content:space-between;
+align-items:center;
+
 padding:18px;
-border-bottom:1px solid rgba(255,255,255,.1);
-font-size:18px;
+margin:8px 0;
+
+border-radius:15px;
+
+font-size:20px;
+
+transition:0.3s;
 }
 
-.prayer-row:last-child{
-border-bottom:none;
+.prayer-left{
+display:flex;
+gap:10px;
+align-items:center;
 }
 
-.prayer-row span{
-color:#ddd;
+.prayer-time{
+color:#f1d18a;
+font-weight:600;
 }
 
-.prayer-row b{
-color:#e5c27a;
+/* active highlight */
+
+.prayer-row.active{
+
+background:linear-gradient(
+90deg,
+rgba(241,209,138,0.25),
+rgba(241,209,138,0.05)
+);
+
+box-shadow:
+0 0 15px rgba(241,209,138,0.4);
+
+transform:scale(1.02);
 }
 
 */nav menu*/
