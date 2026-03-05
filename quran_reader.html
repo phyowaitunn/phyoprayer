@@ -1,0 +1,133 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Quran Reader</title>
+<style>
+body{
+background:linear-gradient(180deg,#4b2f1c,#1c120b);
+font-family:sans-serif;
+color:white;
+margin:0;
+}
+.header{
+padding:20px;
+text-align:center;
+color:#f2d08b;
+}
+.list{padding:15px;}
+.surah{
+background:#2a1a11;
+padding:16px;
+margin-bottom:12px;
+border-radius:12px;
+cursor:pointer;
+}
+.surah:hover{background:#3b2416;}
+.reader{display:none;padding:15px;}
+.back{
+background:#3b2416;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+color:white;
+margin-bottom:15px;
+}
+.ayah{
+background:#2a1a11;
+padding:16px;
+margin-bottom:12px;
+border-radius:12px;
+}
+.ar{
+font-size:26px;
+direction:rtl;
+line-height:2;
+margin-bottom:8px;
+}
+audio{width:100%;margin-top:10px;}
+</style>
+</head>
+<body>
+
+<div class="header">
+<h2>📖 Quran (114 Surahs)</h2>
+</div>
+
+<div id="surahList" class="list"></div>
+
+<div id="reader" class="reader">
+<button class="back" onclick="goBack()">← Back</button>
+<h2 id="title"></h2>
+<div id="ayahContainer"></div>
+<audio id="player" controls></audio>
+</div>
+
+<script>
+
+const list = document.getElementById("surahList");
+
+fetch("https://api.alquran.cloud/v1/surah")
+.then(r=>r.json())
+.then(d=>{
+
+d.data.forEach(s=>{
+
+list.innerHTML += `
+<div class="surah" onclick="openSurah(${s.number})">
+${s.number}. ${s.englishName} - ${s.name}
+</div>
+`;
+
+});
+
+});
+
+function openSurah(n){
+
+document.getElementById("surahList").style.display="none";
+document.getElementById("reader").style.display="block";
+
+fetch("https://api.alquran.cloud/v1/surah/"+n)
+.then(r=>r.json())
+.then(d=>{
+
+const surah=d.data;
+
+document.getElementById("title").innerText =
+surah.englishName + " - " + surah.name;
+
+const container=document.getElementById("ayahContainer");
+container.innerHTML="";
+
+surah.ayahs.forEach(a=>{
+
+container.innerHTML += `
+<div class="ayah">
+<div class="ar">${a.text}</div>
+<button onclick="play(${a.number})">🔊 Play</button>
+</div>
+`;
+
+});
+
+});
+
+}
+
+function play(n){
+document.getElementById("player").src =
+"https://cdn.islamic.network/quran/audio/128/ar.alafasy/"+n+".mp3";
+document.getElementById("player").play();
+}
+
+function goBack(){
+document.getElementById("reader").style.display="none";
+document.getElementById("surahList").style.display="block";
+}
+
+</script>
+
+</body>
+</html>
