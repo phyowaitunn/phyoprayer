@@ -1,21 +1,24 @@
-const urlParams = new URLSearchParams(window.location.search);
-const number = urlParams.get("number");
+const params = new URLSearchParams(window.location.search);
+const surah = params.get("surah");
 
-fetch(`https://api.alquran.cloud/v1/surah/${number}/editions/quran-uthmani,en.asad`)
+if(!surah){
+document.getElementById("surahTitle").innerText="Surah not found";
+}
+
+fetch(`https://api.alquran.cloud/v1/surah/${surah}`)
 .then(res=>res.json())
 .then(data=>{
 
-const arabic = data.data[0];
-const english = data.data[1];
+const surahData = data.data;
 
 document.getElementById("surahTitle").innerText =
-arabic.englishName;
+surahData.englishName;
 
 const container = document.getElementById("ayahList");
 
-arabic.ayahs.forEach((ayah,i)=>{
+surahData.ayahs.forEach(ayah=>{
 
-container.innerHTML+=`
+container.innerHTML += `
 
 <div class="ayah-card">
 
@@ -23,17 +26,13 @@ container.innerHTML+=`
 ${ayah.text}
 </div>
 
-<div class="ayah-en">
-${english.ayahs[i].text}
-</div>
-
-<button onclick="bookmarkAyah('${number}-${ayah.numberInSurah}')">
-⭐ Bookmark
-</button>
+<div class="ayah-actions">
 
 <button onclick="playAudio(${ayah.number})">
 🔊 Play
 </button>
+
+</div>
 
 </div>
 
@@ -51,20 +50,5 @@ player.src =
 `https://cdn.islamic.network/quran/audio/128/ar.alafasy/${id}.mp3`;
 
 player.play();
-
-}
-
-function bookmarkAyah(id){
-
-let bookmarks = JSON.parse(
-localStorage.getItem("bookmarks") || "[]"
-);
-
-bookmarks.push(id);
-
-localStorage.setItem("bookmarks",
-JSON.stringify(bookmarks));
-
-alert("Ayah bookmarked ⭐");
 
 }
