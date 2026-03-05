@@ -2,11 +2,11 @@ fetch("https://api.alquran.cloud/v1/surah")
 .then(res=>res.json())
 .then(data=>{
 
-const surahList=document.getElementById("surahList");
+const container=document.getElementById("surahList");
 
 data.data.forEach(surah=>{
 
-surahList.innerHTML+=`
+container.innerHTML+=`
 
 <div class="surah-card">
 
@@ -14,17 +14,19 @@ surahList.innerHTML+=`
 ${surah.number}
 </div>
 
-<div class="surah-info">
+<div class="surah-text">
 
-<h3>${surah.englishName}</h3>
+<div class="surah-name">
+${surah.englishName}
+</div>
 
-<p class="surah-ar">
+<div class="surah-arabic">
 ${surah.name}
-</p>
+</div>
 
-<p class="surah-en">
+<div class="surah-translation">
 ${surah.englishNameTranslation}
-</p>
+</div>
 
 </div>
 
