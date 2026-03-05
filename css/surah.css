@@ -1,106 +1,47 @@
-/* reader top */
-
 .reader-top{
-
 display:flex;
 align-items:center;
-
-gap:15px;
-
+gap:12px;
 padding:20px;
-
 color:#f2d08b;
-
 }
-
-/* back button */
 
 .back-btn{
-
 background:#3b2416;
-
 border:none;
-
 padding:8px 14px;
-
 border-radius:12px;
-
 color:white;
-
 }
-
-/* ayah container */
 
 .ayah-container{
-
 padding:15px;
-
 }
-
-/* ayah card */
 
 .ayah-card{
-
-background:linear-gradient(
-145deg,
-#3b2416,
-#2a1a11
-);
-
+background:linear-gradient(145deg,#3b2416,#2a1a11);
 padding:18px;
-
 border-radius:18px;
-
-margin-bottom:14px;
-
-box-shadow:0 8px 18px rgba(0,0,0,0.5);
-
+margin-bottom:15px;
+box-shadow:0 8px 18px rgba(0,0,0,0.6);
 }
-
-/* arabic text */
 
 .ayah-ar{
-
 font-size:26px;
-
 direction:rtl;
-
 line-height:2;
-
 color:white;
-
+margin-bottom:10px;
 }
 
-/* play button */
-
-.ayah-actions{
-
-margin-top:10px;
-
-}
-
-.ayah-actions button{
-
+.play-btn{
 background:#f2d08b;
-
 border:none;
-
 padding:6px 12px;
-
 border-radius:8px;
-
 }
 
-/* audio player */
-
-.audio-player-box{
-
-padding:20px;
-
-}
-
-.audio-player-box audio{
-
+audio{
 width:100%;
-
+margin:20px 0;
 }
