@@ -1,191 +1,174 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
+
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Quran</title>
+
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Al-Quran</title>
 
 <style>
 
 body{
-font-family:Arial, sans-serif;
-margin:0;
-background:#0f172a;
+background:linear-gradient(180deg,#4b2f1c,#1c120c);
 color:white;
+font-family:sans-serif;
+margin:0;
 }
 
-/* Header */
+/* header */
+
 .header{
-background:#111827;
-padding:15px;
-display:flex;
-align-items:center;
-justify-content:center;
+padding:20px;
+text-align:center;
+color:#f2d08b;
 font-size:22px;
 font-weight:bold;
-position:sticky;
-top:0;
 }
 
-/* Back button */
-.back{
-position:absolute;
-left:15px;
-font-size:18px;
-cursor:pointer;
+/* tabs */
+
+.tabs{
+display:flex;
+background:#2b1b11;
 }
 
-/* Surah list */
-.container{
+.tab{
+flex:1;
+text-align:center;
+padding:14px;
+color:#c9a86a;
+font-weight:bold;
+border-bottom:3px solid transparent;
+}
+
+.tab.active{
+border-bottom:3px solid #c9a86a;
+}
+
+/* list */
+
+.list{
 padding:15px;
 }
+
+/* surah row */
 
 .surah{
-background:#1f2937;
-border-radius:12px;
-margin-bottom:10px;
-padding:15px;
-transition:0.3s;
-}
-
-.surah-top{
 display:flex;
 justify-content:space-between;
 align-items:center;
-}
-
-.surah-name{
-font-size:18px;
-}
-
-.plus{
-background:#2563eb;
-border:none;
-color:white;
-width:32px;
-height:32px;
-border-radius:50%;
-font-size:18px;
+padding:16px;
+border-bottom:1px solid rgba(255,255,255,0.05);
 cursor:pointer;
 }
 
-/* hidden details */
-.details{
-display:none;
-margin-top:10px;
-font-size:14px;
-line-height:1.6;
+/* left */
+
+.left{
+display:flex;
+align-items:center;
 }
 
-audio{
-width:100%;
-margin-top:8px;
+/* number */
+
+.num{
+width:36px;
+height:36px;
+border:2px solid #c9a86a;
+border-radius:10px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#c9a86a;
+margin-right:12px;
 }
 
-/* responsive */
-@media (max-width:600px){
+/* text */
 
-.surah-name{
-font-size:16px;
+.name{
+font-size:18px;
 }
 
+.info{
+font-size:12px;
+color:#aaa;
+}
+
+/* arabic */
+
+.ar{
+font-size:22px;
+color:#c9a86a;
 }
 
 </style>
+
 </head>
 
 <body>
 
 <div class="header">
-<div class="back" onclick="history.back()">←</div>
-Quran
+Al-Quran
 </div>
 
-<div class="container" id="surahList"></div>
+<div class="tabs">
+
+<div class="tab active">Surah</div>
+
+<div class="tab">Juz</div>
+
+</div>
+
+<div id="surahList" class="list"></div>
 
 <script>
 
-const surahs = [
-{n:1,name:"Al-Fatihah",type:"Meccan",ayah:7,audio:"audio/1.mp3"},
-{n:2,name:"Al-Baqarah",type:"Medinan",ayah:286,audio:"audio/2.mp3"},
-{n:3,name:"Ali 'Imran",type:"Medinan",ayah:200,audio:"audio/3.mp3"},
-{n:4,name:"An-Nisa",type:"Medinan",ayah:176,audio:"audio/4.mp3"},
-{n:5,name:"Al-Ma'idah",type:"Medinan",ayah:120,audio:"audio/5.mp3"},
-{n:6,name:"Al-An'am",type:"Meccan",ayah:165,audio:"audio/6.mp3"},
-{n:7,name:"Al-A'raf",type:"Meccan",ayah:206,audio:"audio/7.mp3"},
-{n:8,name:"Al-Anfal",type:"Medinan",ayah:75,audio:"audio/8.mp3"},
-{n:9,name:"At-Tawbah",type:"Medinan",ayah:129,audio:"audio/9.mp3"},
-{n:10,name:"Yunus",type:"Meccan",ayah:109,audio:"audio/10.mp3"}
-]
-
 const list=document.getElementById("surahList")
 
-surahs.forEach((s,i)=>{
+fetch("https://api.alquran.cloud/v1/surah")
 
-const div=document.createElement("div")
-div.className="surah"
+.then(res=>res.json())
 
-div.innerHTML=`
+.then(data=>{
 
-<div class="surah-top">
-<div class="surah-name">${s.n}. ${s.name}</div>
+data.data.forEach(s=>{
 
-<button class="plus" onclick="toggle(${i})">+</button>
+list.innerHTML+=`
+
+<div class="surah" onclick="openSurah(${s.number})">
+
+<div class="left">
+
+<div class="num">${s.number}</div>
+
+<div>
+
+<div class="name">${s.englishName}</div>
+
+<div class="info">${s.englishNameTranslation} • ${s.numberOfAyahs} VERSES</div>
+
 </div>
 
-<div class="details" id="d${i}">
-Type: ${s.type}<br>
-Ayah: ${s.ayah}
+</div>
 
-<audio controls>
-<source src="${s.audio}" type="audio/mpeg">
-</audio>
+<div class="ar">${s.name}</div>
 
 </div>
+
 `
-
-list.appendChild(div)
 
 })
 
-function toggle(i){
+})
 
-let d=document.getElementById("d"+i)
+function openSurah(n){
 
-if(d.style.display==="block"){
-d.style.display="none"
-}else{
-d.style.display="block"
-}
+window.location="surah.html?number="+n
 
 }
 
-
-
-<!-- NAV MENU -->
-<div class="bottom-nav">
-
-<a href="home.html" class="nav-item">
-<div class="icon-bg"><span class="nav-icon">🏠</span></div>
-<span>Home</span>
-</a>
-
-<a href="prayer.html" class="nav-item">
-<div class="icon-bg"><span class="nav-icon">🕌</span></div>
-<span>Prayer</span>
-</a>
-
-<a href="quran.html" class="nav-item active">
-<div class="icon-bg"><span class="nav-icon">📖</span></div>
-<span>Quran</span>
-</a>
-
-<a href="settings.html" class="nav-item">
-<div class="icon-bg"><span class="nav-icon">⚙️</span></div>
-<span>Settings</span>
-</a>
-
-</div>
+</script>
 
 </body>
 </html>
