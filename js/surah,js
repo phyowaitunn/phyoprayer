@@ -1,49 +1,57 @@
 const params = new URLSearchParams(window.location.search);
-const surahNumber = params.get("surah");
+
+const surah = params.get("surah");
 
 const title = document.getElementById("surahTitle");
-const ayahList = document.getElementById("ayahList");
-const audio = document.getElementById("audioPlayer");
 
-if(!surahNumber){
-title.innerText = "Surah not found";
-}
+const container = document.getElementById("ayahList");
+
+const audio = document.getElementById("audioPlayer");
 
 async function loadSurah(){
 
 try{
 
-const res = await fetch(`https://api.alquran.cloud/v1/surah/${surahNumber}`);
-const data = await res.json();
+const response =
+await fetch(`https://api.quran.com/api/v4/chapters/${surah}/verses?translations=131&language=en`);
 
-const surah = data.data;
+const data = await response.json();
 
-title.innerText = surah.englishName + " (" + surah.name + ")";
+title.innerText = "Surah " + surah;
 
-ayahList.innerHTML="";
+container.innerHTML="";
 
-surah.ayahs.forEach(ayah => {
+data.verses.forEach(v => {
 
-const card = document.createElement("div");
-card.className="ayah-card";
+container.innerHTML += `
 
-card.innerHTML = `
+<div class="ayah-card">
 
 <div class="ayah-ar">
-${ayah.text}
+
+${v.text_uthmani}
+
 </div>
 
-<div class="ayah-actions">
-<button onclick="playAudio(${ayah.number})">🔊 Play</button>
+<div class="ayah-en">
+
+${v.translations[0].text}
+
+</div>
+
+<button onclick="playAudio(${v.id})" class="play-btn">
+
+🔊 Play
+
+</button>
+
 </div>
 
 `;
 
-ayahList.appendChild(card);
-
 });
 
-}catch(e){
+}catch(err){
 
 title.innerText="Failed to load Surah";
 
@@ -54,10 +62,10 @@ title.innerText="Failed to load Surah";
 loadSurah();
 
 
-function playAudio(num){
+function playAudio(id){
 
 audio.src =
-`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${num}.mp3`;
+`https://verses.quran.com/Alafasy/mp3/${id}.mp3`;
 
 audio.play();
 
