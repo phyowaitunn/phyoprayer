@@ -105,4 +105,4 @@ s.englishName.toLowerCase().includes(text)
 showSurah(filtered);
 
 });
-<a href="surah.html?surah=${surah.number}" class="surah-card">
+
