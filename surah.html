@@ -1,14 +1,19 @@
 <!DOCTYPE html>
 <html>
 <head>
+
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Surah</title>
-<link rel="stylesheet" href="css/surah.css">
+
+<title>Quran Reader</title>
+
+<link rel="stylesheet" href="css.surah.css">
+
 </head>
+
 
 <body class="app-bg">
 
-<div class="reader-header">
+<div class="surah-header">
 
 <button onclick="history.back()" class="back-btn">
 ← Back
@@ -18,9 +23,16 @@
 
 </div>
 
+
 <div id="ayahList" class="ayah-container"></div>
 
-<audio id="audioPlayer" controls class="audio-player"></audio>
+
+<div class="audio-box">
+
+<audio id="audioPlayer" controls></audio>
+
+</div>
+
 
 <script src="js/surah.js"></script>
 
