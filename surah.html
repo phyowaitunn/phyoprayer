@@ -2,14 +2,14 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Surah Reader</title>
+<title>Quran Reader</title>
 
 <style>
 
 body{
 background:linear-gradient(180deg,#4b2f1c,#1c120b);
-font-family:sans-serif;
 color:white;
+font-family:sans-serif;
 margin:0;
 }
 
@@ -44,14 +44,6 @@ border-radius:14px;
 font-size:26px;
 direction:rtl;
 line-height:2;
-margin-bottom:10px;
-}
-
-.play{
-background:#f2d08b;
-border:none;
-padding:6px 12px;
-border-radius:8px;
 }
 
 audio{
@@ -79,32 +71,27 @@ margin:15px;
 
 <script>
 
-const params = new URLSearchParams(window.location.search);
-const surah=params.get("surah");
+const params=new URLSearchParams(window.location.search);
+const surahNumber=params.get("surah");
 
-const title=document.getElementById("title");
-const list=document.getElementById("list");
-const player=document.getElementById("player");
+fetch("/data/quran.json")
+.then(r=>r.json())
+.then(quran=>{
 
-fetch("https://api.alquran.cloud/v1/surah/"+surah)
-.then(res=>res.json())
-.then(data=>{
+const surah=quran[surahNumber-1];
 
-const s=data.data;
+document.getElementById("title").innerText=
+surah.transliteration+" - "+surah.name;
 
-title.innerText=s.englishName+" - "+s.name;
+surah.verses.forEach(v=>{
 
-s.ayahs.forEach(a=>{
-
-list.innerHTML+=`
+document.getElementById("list").innerHTML+=`
 
 <div class="ayah">
 
-<div class="ar">${a.text}</div>
+<div class="ar">${v.text}</div>
 
-<button class="play" onclick="play(${a.number})">
-🔊 Play
-</button>
+<button onclick="play(${v.id})">🔊 Play</button>
 
 </div>
 
@@ -112,18 +99,14 @@ list.innerHTML+=`
 
 });
 
-})
-.catch(()=>{
-
-title.innerText="Failed to load Surah";
-
 });
 
-function play(n){
+function play(id){
 
-player.src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/"+n+".mp3";
+document.getElementById("player").src=
+"https://cdn.islamic.network/quran/audio/128/ar.alafasy/"+id+".mp3";
 
-player.play();
+document.getElementById("player").play();
 
 }
 
