@@ -1,34 +1,120 @@
 <!DOCTYPE html>
 <html>
-
 <head>
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Quran Reader</title>
-<link rel="stylesheet" href="css/surah.css">
+<title>Surah</title>
+
+<style>
+
+body{
+background:linear-gradient(180deg,#4b2f1c,#1c120b);
+color:white;
+font-family:sans-serif;
+margin:0;
+}
+
+.header{
+display:flex;
+align-items:center;
+gap:10px;
+padding:15px;
+color:#f2d08b;
+}
+
+.back{
+background:#3b2416;
+border:none;
+padding:8px 14px;
+border-radius:10px;
+color:white;
+}
+
+.ayah{
+background:#2a1a11;
+margin:10px;
+padding:15px;
+border-radius:15px;
+}
+
+.ar{
+font-size:26px;
+direction:rtl;
+line-height:2;
+}
+
+audio{
+width:95%;
+margin:15px;
+}
+
+</style>
+
 </head>
 
-<body class="app-bg">
 
-<div class="reader-top">
+<body>
 
-<button onclick="history.back()" class="back-btn">
-← Back
-</button>
+<div class="header">
 
-<h2 id="surahTitle">Loading...</h2>
+<button class="back" onclick="history.back()">← Back</button>
+
+<h2 id="title">Loading...</h2>
 
 </div>
 
 
-<div id="ayahList" class="ayah-container"></div>
+<div id="list"></div>
+
+<audio id="player" controls></audio>
 
 
-<div class="audio-player-box">
-<audio id="audioPlayer" controls></audio>
+<script>
+
+const params = new URLSearchParams(window.location.search);
+
+const surah = params.get("surah");
+
+const title = document.getElementById("title");
+
+const list = document.getElementById("list");
+
+const player = document.getElementById("player");
+
+
+fetch("https://api.alquran.cloud/v1/surah/"+surah)
+.then(r=>r.json())
+.then(d=>{
+
+title.innerText=d.data.englishName+" - "+d.data.name;
+
+d.data.ayahs.forEach(a=>{
+
+list.innerHTML+=`
+
+<div class="ayah">
+
+<div class="ar">${a.text}</div>
+
+<button onclick="play(${a.number})">🔊 Play</button>
+
 </div>
 
+`;
 
-<script src="js/surah.js"></script>
+});
+
+});
+
+
+function play(n){
+
+player.src="https://cdn.islamic.network/quran/audio/128/ar.alafasy/"+n+".mp3";
+
+player.play();
+
+}
+
+</script>
 
 </body>
 </html>
