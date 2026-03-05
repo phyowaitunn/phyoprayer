@@ -1,0 +1,70 @@
+const urlParams = new URLSearchParams(window.location.search);
+const number = urlParams.get("number");
+
+fetch(`https://api.alquran.cloud/v1/surah/${number}/editions/quran-uthmani,en.asad`)
+.then(res=>res.json())
+.then(data=>{
+
+const arabic = data.data[0];
+const english = data.data[1];
+
+document.getElementById("surahTitle").innerText =
+arabic.englishName;
+
+const container = document.getElementById("ayahList");
+
+arabic.ayahs.forEach((ayah,i)=>{
+
+container.innerHTML+=`
+
+<div class="ayah-card">
+
+<div class="ayah-ar">
+${ayah.text}
+</div>
+
+<div class="ayah-en">
+${english.ayahs[i].text}
+</div>
+
+<button onclick="bookmarkAyah('${number}-${ayah.numberInSurah}')">
+⭐ Bookmark
+</button>
+
+<button onclick="playAudio(${ayah.number})">
+🔊 Play
+</button>
+
+</div>
+
+`;
+
+});
+
+});
+
+function playAudio(id){
+
+const player = document.getElementById("audioPlayer");
+
+player.src =
+`https://cdn.islamic.network/quran/audio/128/ar.alafasy/${id}.mp3`;
+
+player.play();
+
+}
+
+function bookmarkAyah(id){
+
+let bookmarks = JSON.parse(
+localStorage.getItem("bookmarks") || "[]"
+);
+
+bookmarks.push(id);
+
+localStorage.setItem("bookmarks",
+JSON.stringify(bookmarks));
+
+alert("Ayah bookmarked ⭐");
+
+}
