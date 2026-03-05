@@ -1,9 +1,8 @@
-/* surah header */
+/* reader top */
 
-.surah-header{
+.reader-top{
 
 display:flex;
-
 align-items:center;
 
 gap:15px;
@@ -13,7 +12,6 @@ padding:20px;
 color:#f2d08b;
 
 }
-
 
 /* back button */
 
@@ -31,7 +29,6 @@ color:white;
 
 }
 
-
 /* ayah container */
 
 .ayah-container{
@@ -39,7 +36,6 @@ color:white;
 padding:15px;
 
 }
-
 
 /* ayah card */
 
@@ -51,19 +47,17 @@ background:linear-gradient(
 #2a1a11
 );
 
-padding:20px;
+padding:18px;
 
-border-radius:20px;
+border-radius:18px;
 
-margin-bottom:15px;
+margin-bottom:14px;
 
-box-shadow:
-8px 8px 20px rgba(0,0,0,0.6);
+box-shadow:0 8px 18px rgba(0,0,0,0.5);
 
 }
 
-
-/* arabic */
+/* arabic text */
 
 .ayah-ar{
 
@@ -75,25 +69,17 @@ line-height:2;
 
 color:white;
 
-margin-bottom:10px;
-
 }
-
-
-/* english */
-
-.ayah-en{
-
-color:#ddd;
-
-margin-bottom:10px;
-
-}
-
 
 /* play button */
 
-.play-btn{
+.ayah-actions{
+
+margin-top:10px;
+
+}
+
+.ayah-actions button{
 
 background:#f2d08b;
 
@@ -101,20 +87,19 @@ border:none;
 
 padding:6px 12px;
 
-border-radius:10px;
+border-radius:8px;
 
 }
 
-
 /* audio player */
 
-.audio-box{
+.audio-player-box{
 
 padding:20px;
 
 }
 
-.audio-box audio{
+.audio-player-box audio{
 
 width:100%;
 
