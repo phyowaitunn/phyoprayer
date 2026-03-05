@@ -8,15 +8,19 @@
 
 <body class="app-bg">
 
-<div class="page-container">
+<div class="reader-header">
+
+<button onclick="history.back()" class="back-btn">
+← Back
+</button>
 
 <h2 id="surahTitle">Loading...</h2>
 
-<div id="ayahList"></div>
-
 </div>
 
-<audio id="audioPlayer" controls></audio>
+<div id="ayahList" class="ayah-container"></div>
+
+<audio id="audioPlayer" controls class="audio-player"></audio>
 
 <script src="js/surah.js"></script>
 
