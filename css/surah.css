@@ -1,3 +1,13 @@
+/* PAGE BACKGROUND */
+
+.app-bg{
+background:linear-gradient(180deg,#4b2f1c,#1c120b);
+min-height:100vh;
+color:white;
+font-family:sans-serif;
+}
+
+
 .reader-top{
 display:flex;
 align-items:center;
