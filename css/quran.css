@@ -1,31 +1,35 @@
-/* page */
+/* PAGE BACKGROUND */
 
-.page-container{
-padding:20px 15px 90px;
+.app-bg{
+background:linear-gradient(180deg,#4b2f1c,#1c120b);
+min-height:100vh;
+color:white;
+font-family:sans-serif;
 }
+
+/* TITLE */
 
 .page-title{
 text-align:center;
 color:#f2d08b;
-margin-bottom:15px;
+margin:20px 0;
 }
 
-/* grid */
+/* SURAH LIST */
 
-.surah-grid{
-display:grid;
-grid-template-columns:1fr 1fr;
-gap:12px;
+.surah-list{
+padding:10px 15px;
 }
 
-/* card */
+/* SURAH CARD */
 
 .surah-card{
 
 display:flex;
 align-items:center;
 
-padding:14px;
+padding:15px;
+margin-bottom:12px;
 
 border-radius:18px;
 
@@ -36,22 +40,24 @@ background:linear-gradient(
 );
 
 box-shadow:
-8px 8px 18px rgba(0,0,0,0.6);
+8px 8px 20px rgba(0,0,0,0.6);
 
 transition:0.3s;
 
 }
 
+/* CARD HOVER */
+
 .surah-card:active{
-transform:scale(.97);
+transform:scale(0.97);
 }
 
-/* number */
+/* NUMBER */
 
 .surah-number{
 
-width:36px;
-height:36px;
+width:40px;
+height:40px;
 
 display:flex;
 align-items:center;
@@ -64,34 +70,24 @@ color:#2a1a11;
 
 font-weight:bold;
 
-margin-right:12px;
+margin-right:15px;
 
 }
 
-/* text */
+/* INFO */
 
-.surah-name{
-font-weight:600;
-font-size:16px;
+.surah-info h3{
+margin:0;
+font-size:18px;
 }
 
-.surah-arabic{
+.surah-ar{
 font-size:20px;
 direction:rtl;
-margin-top:2px;
+margin:3px 0;
 }
 
-.surah-translation{
-font-size:12px;
+.surah-en{
+font-size:13px;
 color:#ccc;
-}
-
-/* responsive */
-
-@media(max-width:650px){
-
-.surah-grid{
-grid-template-columns:1fr;
-}
-
 }
