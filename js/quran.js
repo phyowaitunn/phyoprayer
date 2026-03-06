@@ -86,7 +86,7 @@ html+=`
 
 <div class="translation">${en[i].text}</div>
 
-<button class="play" onclick="play('${ar[i].audio}')">Play Audio</button>
+<button class="play" onclick="play(${num})">▶ Play Surah</button>
 
 </div>
 
@@ -100,7 +100,9 @@ document.getElementById("ayahs").innerHTML=html
 
 }
 
-function play(url){
+function play(num){
+
+let url="https://cdn.islamic.network/quran/audio-surah/128/ar.alafasy/"+num+".mp3"
 
 new Audio(url).play()
 
