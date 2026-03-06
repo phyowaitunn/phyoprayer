@@ -1,3 +1,120 @@
+body{
+margin:0;
+font-family:sans-serif;
+background:linear-gradient(180deg,#5b3a27,#1c120c);
+color:white;
+}
+
+/* header */
+
+.header{
+text-align:center;
+padding:20px;
+font-size:22px;
+color:#e3c07a;
+}
+
+/* search */
+
+.search{
+padding:10px 20px;
+}
+
+.search input{
+width:100%;
+padding:12px;
+border:none;
+border-radius:10px;
+background:#3b2a20;
+color:white;
+font-size:16px;
+}
+
+/* surah list */
+
+.surah{
+display:flex;
+justify-content:space-between;
+align-items:center;
+padding:16px;
+border-bottom:1px solid rgba(255,255,255,0.08);
+cursor:pointer;
+}
+
+.left{
+display:flex;
+align-items:center;
+}
+
+.num{
+width:36px;
+height:36px;
+border:2px solid #e3c07a;
+border-radius:12px;
+display:flex;
+align-items:center;
+justify-content:center;
+color:#e3c07a;
+margin-right:12px;
+}
+
+.name{
+font-size:18px;
+}
+
+.info{
+font-size:12px;
+color:#aaa;
+}
+
+.ar{
+font-size:22px;
+color:#e3c07a;
+}
+
+/* reader */
+
+.reader{
+padding:20px;
+display:none;
+}
+
+.ayah{
+margin-bottom:30px;
+border-bottom:1px solid rgba(255,255,255,0.1);
+padding-bottom:20px;
+}
+
+.arabic{
+font-size:26px;
+text-align:right;
+color:#e3c07a;
+margin-bottom:10px;
+}
+
+.translation{
+color:#ddd;
+}
+
+.play{
+margin-top:10px;
+background:#e3c07a;
+border:none;
+padding:8px 14px;
+border-radius:8px;
+}
+
+/* back button */
+
+.back{
+margin:10px;
+background:#3b2a20;
+border:none;
+padding:10px 16px;
+border-radius:10px;
+color:white;
+}
+
 
 */nav menu*/
 body{
