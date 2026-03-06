@@ -1,108 +1,114 @@
-fetch("https://api.alquran.cloud/v1/surah")
-.then(res=>res.json())
-.then(data=>{
-
-const container=document.getElementById("surahList");
-
-data.data.forEach(surah=>{
-
-container.innerHTML+=`
-
-<div class="surah-card">
-
-<div class="surah-number">
-${surah.number}
-</div>
-
-<div class="surah-text">
-
-<div class="surah-name">
-${surah.englishName}
-</div>
-
-<div class="surah-arabic">
-${surah.name}
-</div>
-
-<div class="surah-translation">
-${surah.englishNameTranslation}
-</div>
-
-</div>
-
-</div>
-
-`;
-
-});
-
-});
-
-
-
-
-
-let surahData = [];
+let surahs=[]
 
 fetch("https://api.alquran.cloud/v1/surah")
+
 .then(res=>res.json())
+
 .then(data=>{
 
-surahData = data.data;
-showSurah(surahData);
+surahs=data.data
 
-});
+render(surahs)
 
-function showSurah(list){
+})
 
-const container = document.getElementById("surahList");
+function render(data){
 
-container.innerHTML="";
+const list=document.getElementById("surahList")
 
-list.forEach(surah=>{
+list.innerHTML=""
 
-container.innerHTML+=`
+data.forEach(s=>{
 
-<a href="surah.html?number=${surah.number}" class="surah-card">
+list.innerHTML+=`
 
-<div class="surah-number">
-${surah.number}
-</div>
+<div class="surah" onclick="openSurah(${s.number})">
 
-<div class="surah-text">
+<div class="left">
 
-<div class="surah-name">
-${surah.englishName}
-</div>
+<div class="num">${s.number}</div>
 
-<div class="surah-arabic">
-${surah.name}
-</div>
+<div>
 
-<div class="surah-translation">
-${surah.englishNameTranslation}
+<div class="name">${s.englishName}</div>
+
+<div class="info">${s.numberOfAyahs} verses</div>
+
 </div>
 
 </div>
 
-</a>
+<div class="ar">${s.name}</div>
 
-`;
+</div>
 
-});
+`
+
+})
 
 }
 
-document.getElementById("searchSurah")
-.addEventListener("input",e=>{
+document.getElementById("search").addEventListener("input",function(){
 
-const text = e.target.value.toLowerCase();
+const q=this.value.toLowerCase()
 
-const filtered = surahData.filter(s=> 
-s.englishName.toLowerCase().includes(text)
-);
+const filtered=surahs.filter(s=>s.englishName.toLowerCase().includes(q))
 
-showSurah(filtered);
+render(filtered)
 
-});
+})
 
+function openSurah(num){
+
+document.getElementById("surahList").style.display="none"
+document.getElementById("reader").style.display="block"
+
+fetch("https://api.alquran.cloud/v1/surah/"+num+"/editions/quran-uthmani,en.asad")
+
+.then(res=>res.json())
+
+.then(data=>{
+
+const ar=data.data[0].ayahs
+const en=data.data[1].ayahs
+
+document.getElementById("title").innerText=data.data[0].englishName
+
+let html=""
+
+for(let i=0;i<ar.length;i++){
+
+html+=`
+
+<div class="ayah">
+
+<div class="arabic">${ar[i].text}</div>
+
+<div class="translation">${en[i].text}</div>
+
+<button class="play" onclick="play('${ar[i].audio}')">Play Audio</button>
+
+</div>
+
+`
+
+}
+
+document.getElementById("ayahs").innerHTML=html
+
+})
+
+}
+
+function play(url){
+
+new Audio(url).play()
+
+}
+
+function back(){
+
+document.getElementById("reader").style.display="none"
+document.getElementById("surahList").style.display="block"
+
+}
