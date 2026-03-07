@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Islamic Calendar</title>
+
+<link rel="stylesheet" href="islamic-calendar.css">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<a href="home.html" class="back">←</a>
+<h1>Islamic Calendar</h1>
+
+</header>
+
+
+<div class="calendar-card">
+
+<div class="today">
+
+<p id="gregorian"></p>
+<h2 id="hijri"></h2>
+<p id="location">Malaysia</p>
+
+</div>
+
+
+<div class="month">
+
+<button onclick="prevMonth()">‹</button>
+<h3 id="monthName"></h3>
+<button onclick="nextMonth()">›</button>
+
+</div>
+
+
+<div class="week">
+
+<span>Sun</span>
+<span>Mon</span>
+<span>Tue</span>
+<span>Wed</span>
+<span>Thu</span>
+<span>Fri</span>
+<span>Sat</span>
+
+</div>
+
+
+<div class="days" id="calendarDays">
+
+</div>
+
+</div>
+
+
+<script src="islamic-calendar.js"></script>
+
+</body>
+</html>
