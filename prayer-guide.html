@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Prayer Guide</title>
+
+<link rel="stylesheet" href="css/prayer-guide.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Amiri&display=swap" rel="stylesheet">
+
+</head>
+
+<body>
+
+<header class="header">
+
+<a href="home.html" class="back">←</a>
+<h2>Prayer Guide</h2>
+
+</header>
+
+
+<!-- TABS -->
+
+<div class="tabs">
+
+<div class="tab active" onclick="openTab('wudu')">Wudu'</div>
+<div class="tab" onclick="openTab('intention')">Prayer Intention</div>
+<div class="tab" onclick="openTab('dua')">Dua'</div>
+
+</div>
+
+
+<!-- WUDU SECTION -->
+
+<div id="wudu" class="tab-content active">
+
+<div class="card">
+
+<div class="accordion-header" onclick="toggle(this)">
+Wudu' Intention
+<span>-</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+نَوَيْتُ الْوُضُوءَ لِرَفْعِ الْحَدَثِ الْأَصْغَرِ فَرْضًا لِلّٰهِ تَعَالَى
+</p>
+
+<p class="trans">
+Nawaitul wudhu-a lirof’il hadatsii ashghori fardhon lillaahi ta'alaa
+</p>
+
+<p class="meaning">
+Meaning: I perform wudu to remove minor impurity for Allah Ta’ala.
+</p>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="accordion-header" onclick="toggle(this)">
+Steps to Take Wudu'
+<span>-</span>
+</div>
+
+<div class="accordion-body">
+
+<ol class="steps">
+
+<li>Wash both hands</li>
+<li>Rinse mouth</li>
+<li>Clean nose</li>
+<li>Wash face</li>
+<li>Wash arms until elbows</li>
+<li>Wipe head</li>
+<li>Clean ears</li>
+<li>Wash feet until ankles</li>
+
+</ol>
+
+</div>
+
+</div>
+
+
+
+<div class="card">
+
+<div class="accordion-header" onclick="toggle(this)">
+Dua' After Wudu'
+<span>-</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+أَشْهَدُ أَنْ لَا إِلٰهَ إِلَّا اللّٰهُ وَحْدَهُ لَا شَرِيكَ لَهُ
+</p>
+
+<p class="trans">
+Ashhadu an la ilaha illallah wahdahu la sharika lah
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- PRAYER INTENTION -->
+
+<div id="intention" class="tab-content">
+
+<!-- FAJR -->
+
+<div class="card">
+
+<div class="accordion-header" onclick="toggle(this)">
+Fajr
+<span>-</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+أُصَلِّي فَرْضَ الصُّبْحِ رَكْعَتَيْنِ أَدَاءً لِلّٰهِ تَعَالَى
+</p>
+
+<p class="trans">
+I intend to pray the obligatory Fajr prayer two raka'at for Allah Ta'ala
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ZUHR -->
+
+<div class="card collapsed">
+
+<div class="accordion-header" onclick="toggle(this)">
+Zuhr
+<span>+</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+أُصَلِّي فَرْضَ الظُّهْرِ أَرْبَعَ رَكَعَاتٍ أَدَاءً لِلّٰهِ تَعَالَى
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ASR -->
+
+<div class="card collapsed">
+
+<div class="accordion-header" onclick="toggle(this)">
+Asr
+<span>+</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+أُصَلِّي فَرْضَ الْعَصْرِ أَرْبَعَ رَكَعَاتٍ أَدَاءً لِلّٰهِ تَعَالَى
+</p>
+
+</div>
+
+</div>
+
+
+<!-- MAGHRIB -->
+
+<div class="card collapsed">
+
+<div class="accordion-header" onclick="toggle(this)">
+Maghrib
+<span>+</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+أُصَلِّي فَرْضَ الْمَغْرِبِ ثَلَاثَ رَكَعَاتٍ أَدَاءً لِلّٰهِ تَعَالَى
+</p>
+
+</div>
+
+</div>
+
+
+<!-- ISYA -->
+
+<div class="card collapsed">
+
+<div class="accordion-header" onclick="toggle(this)">
+Isya'
+<span>+</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+أُصَلِّي فَرْضَ الْعِشَاءِ أَرْبَعَ رَكَعَاتٍ أَدَاءً لِلّٰهِ تَعَالَى
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+
+<!-- DUA SECTION -->
+
+<div id="dua" class="tab-content">
+
+<div class="card">
+
+<div class="accordion-header" onclick="toggle(this)">
+Dua' Iftitah
+<span>-</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+اللَّهُ أَكْبَرُ كَبِيرًا وَالْحَمْدُ لِلَّهِ كَثِيرًا
+</p>
+
+<p class="trans">
+Allahu akbar kabira walhamdulillahi katsira
+</p>
+
+</div>
+
+</div>
+
+
+<div class="card collapsed">
+
+<div class="accordion-header" onclick="toggle(this)">
+Dua' After Prayer
+<span>+</span>
+</div>
+
+<div class="accordion-body">
+
+<p class="arabic">
+اللَّهُمَّ أَنْتَ السَّلَامُ وَمِنْكَ السَّلَامُ
+</p>
+
+</div>
+
+</div>
+
+</div>
+
+
+<script src="js/prayer-guide.js"></script>
+
+</body>
+</html>
