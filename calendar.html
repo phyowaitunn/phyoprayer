@@ -24,23 +24,33 @@
 
 <div class="calendar-card">
 
-<div class="today">
+<!-- TODAY -->
 
-<p id="gregorian"></p>
-<h2 id="hijri"></h2>
-<p id="location">Malaysia</p>
+<div class="today-box">
+
+<p id="gregorianDate"></p>
+
+<h2 id="hijriDate"></h2>
+
+<p id="islamicEvent"></p>
 
 </div>
 
 
-<div class="month">
+<!-- MONTH NAV -->
+
+<div class="month-nav">
 
 <button onclick="prevMonth()">‹</button>
-<h3 id="monthName"></h3>
+
+<h3 id="monthTitle"></h3>
+
 <button onclick="nextMonth()">›</button>
 
 </div>
 
+
+<!-- WEEK -->
 
 <div class="week">
 
@@ -55,9 +65,9 @@
 </div>
 
 
-<div class="days" id="calendarDays">
+<!-- DAYS -->
 
-</div>
+<div class="days" id="calendarDays"></div>
 
 </div>
 
