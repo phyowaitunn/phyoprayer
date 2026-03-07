@@ -1,74 +1,96 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="css/home.css">
-<title>Phyo Prayer</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>SalahMate</title>
+<link rel="stylesheet" href="css/salah.css">
 </head>
 
 <body>
-<!-- header-premium -->
-<div class="ultra-header">
-<div class="header-content">
-<div class="moon">🌙</div>
-<h1 class="app-title">Phyo Prayer</h1>
-<div class="header-info">
-<div class="date" id="todayDate">
-Loading date...
-</div>
-</div>
-</div>
-  
 
+<header class="header">
+<h1 class="logo">SalahMate</h1>
+</header>
+
+<div class="top-header">
+
+<div class="date-box">
+<div class="date">06 March 2026</div>
+<div class="hijri">16 Ramadan 1447 H</div>
+<div class="location">📍 Pulau Pinang – Perai</div>
 </div>
 
-
-
-
-<!-- NEXT PRAYER -->
-<div class="next-card">
+<div class="next-box">
 <div class="next-title">Next Prayer</div>
-<div class="next-time">
-<span id="nextPrayer">--</span>
-</div>
-<div class="progress">
-<div id="progressBar"></div>
-</div>
-<div class="countdown" id="countdown">
-Loading...
+<div class="next-time">Imsak 06:11</div>
+<div class="countdown">5h 32m remaining</div>
 </div>
 
 </div>
 
-<!-- PRAYER TIMES -->
-<div class="prayer-list">
+<section class="menu">
 
-<div class="prayer-row" id="row-fajr">
-<div class="prayer-left">🌅 Fajr</div>
-<div class="prayer-time" id="fajr">--</div>
+<a href="qibla.html" class="menu-link">
+<div class="item">
+<div class="circle">🧭</div>
+<p>Qibla</p>
 </div>
+</a>
 
-<div class="prayer-row" id="row-dhuhr">
-<div class="prayer-left">☀️ Dhuhr</div>
-<div class="prayer-time" id="dhuhr">--</div>
+<a href="prayer-guide.html" class="menu-link">
+<div class="item">
+<div class="circle">🕌</div>
+<p>Prayer Guide</p>
 </div>
+</a>
 
-<div class="prayer-row" id="row-asr">
-<div class="prayer-left">🌤 Asr</div>
-<div class="prayer-time" id="asr">--</div>
+<a href="daily-doa.html" class="menu-link">
+<div class="item">
+<div class="circle">🤲</div>
+<p>Daily Doa</p>
 </div>
+</a>
 
-<div class="prayer-row" id="row-maghrib">
-<div class="prayer-left">🌇 Maghrib</div>
-<div class="prayer-time" id="maghrib">--</div>
+<a href="wirid.html" class="menu-link">
+<div class="item">
+<div class="circle">📿</div>
+<p>Wirid & Zikr</p>
 </div>
+</a>
 
-<div class="prayer-row" id="row-isha">
-<div class="prayer-left">🌙 Isha</div>
-<div class="prayer-time" id="isha">--</div>
+<a href="calendar.html" class="menu-link">
+<div class="item">
+<div class="circle">📅</div>
+<p>Islamic Calendar</p>
 </div>
+</a>
 
+<a href="wear.html" class="menu-link">
+<div class="item">
+<div class="circle">⌚</div>
+<p>Wear</p>
 </div>
+</a>
+
+<a href="tasbih.html" class="menu-link">
+<div class="item">
+<div class="circle">📿</div>
+<p>Tasbih</p>
+</div>
+</a>
+
+<a href="more.html" class="menu-link">
+<div class="item">
+<div class="circle gold">+</div>
+<p>Next</p>
+</div>
+</a>
+
+</section>
+
+
+<!-- NAV MENU (UNCHANGED) -->
 
 <div class="bottom-nav">
 
@@ -101,58 +123,14 @@ Loading...
 </a>
 
 </div>
-  
-<script src="js/prayer.js"></script>
 
-<script id="date_script">
-
-const dateElement = document.getElementById("todayDate");
-
-const now = new Date();
-
-dateElement.innerText =
-now.toLocaleDateString("en-MY",{
-weekday:"long",
-day:"numeric",
-month:"long",
-year:"numeric"
-});
-
-</script>
-
+<script src="css/salah.js"></script>
 
 <script>
-
-const navLinks = document.querySelectorAll(".nav-item");
-
-const currentPage = window.location.pathname.split("/").pop();
-
-navLinks.forEach(link => {
-
-const linkPage = link.getAttribute("href");
-
-if(linkPage === currentPage){
-
-link.classList.add("active");
-
-}
-
-});
-
-</script>
-
-<script>
-
 if(Notification.permission !== "granted"){
-
 Notification.requestPermission();
-
 }
-
 </script>
-  
-  <script src="js/theme.js"></script>
-  <script src="js/language.js"></script>
-  <audio id="azanSound" src="audio/azan.mp3"></audio>
+
 </body>
 </html>
