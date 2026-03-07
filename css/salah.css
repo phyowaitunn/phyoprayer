@@ -23,6 +23,25 @@ text-shadow:
 0 6px 10px rgba(0,0,0,0.5);
 }
 
+/* NEXT PRAYER CARD */
+
+.next-card{
+margin:20px;
+padding:25px;
+
+background:linear-gradient(145deg,#3a2618,#2a1b12);
+
+border-radius:25px;
+
+box-shadow:
+10px 10px 25px rgba(0,0,0,0.6),
+-5px -5px 15px rgba(255,255,255,0.05);
+
+backdrop-filter: blur(10px);
+
+color:white;
+}
+
 /* TOP HEADER */
 
 .top-header{
