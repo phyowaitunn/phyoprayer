@@ -2,33 +2,77 @@
 <html>
 <head>
 <meta name="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="css/prayer.css">
-<title>Prayer Times</title>
+<link rel="stylesheet" href="css/home.css">
+<title>Phyo Prayer</title>
 </head>
 
 <body>
+<!-- header-premium -->
+<div class="ultra-header">
+<div class="header-content">
+<div class="moon">🌙</div>
+<h1 class="app-title">Phyo Prayer</h1>
+<div class="header-info">
+<div class="date" id="todayDate">
+Loading date...
+</div>
+</div>
+</div>
+  
 
-<div class="header">
-<h2>🕌 Prayer Times</h2>
-<p id="location">Loading...</p>
-<p id="date">Loading...</p>
 </div>
 
+
+
+
+<!-- NEXT PRAYER -->
+<div class="next-card">
+<div class="next-title">Next Prayer</div>
+<div class="next-time">
+<span id="nextPrayer">--</span>
+</div>
+<div class="progress">
+<div id="progressBar"></div>
+</div>
+<div class="countdown" id="countdown">
+Loading...
+</div>
+
+</div>
+
+<!-- PRAYER TIMES -->
 <div class="prayer-list">
 
-<div class="row"><span>Fajr</span><b id="fajr"></b></div>
-<div class="row"><span>Sunrise</span><b id="sunrise"></b></div>
-<div class="row"><span>Dhuhr</span><b id="dhuhr"></b></div>
-<div class="row"><span>Asr</span><b id="asr"></b></div>
-<div class="row"><span>Maghrib</span><b id="maghrib"></b></div>
-<div class="row"><span>Isha</span><b id="isha"></b></div>
+<div class="prayer-row" id="row-fajr">
+<div class="prayer-left">🌅 Fajr</div>
+<div class="prayer-time" id="fajr">--</div>
+</div>
+
+<div class="prayer-row" id="row-dhuhr">
+<div class="prayer-left">☀️ Dhuhr</div>
+<div class="prayer-time" id="dhuhr">--</div>
+</div>
+
+<div class="prayer-row" id="row-asr">
+<div class="prayer-left">🌤 Asr</div>
+<div class="prayer-time" id="asr">--</div>
+</div>
+
+<div class="prayer-row" id="row-maghrib">
+<div class="prayer-left">🌇 Maghrib</div>
+<div class="prayer-time" id="maghrib">--</div>
+</div>
+
+<div class="prayer-row" id="row-isha">
+<div class="prayer-left">🌙 Isha</div>
+<div class="prayer-time" id="isha">--</div>
+</div>
 
 </div>
 
-<!-- NAV MENU -->
 <div class="bottom-nav">
 
-<a href="home.html" class="nav-item">
+<a href="home.html" class="nav-item active">
 <div class="icon-bg">
 <span class="nav-icon">🏠</span>
 </div>
@@ -57,6 +101,25 @@
 </a>
 
 </div>
+  
+<script src="js/prayer.js"></script>
+
+<script id="date_script">
+
+const dateElement = document.getElementById("todayDate");
+
+const now = new Date();
+
+dateElement.innerText =
+now.toLocaleDateString("en-MY",{
+weekday:"long",
+day:"numeric",
+month:"long",
+year:"numeric"
+});
+
+</script>
+
 
 <script>
 
@@ -77,8 +140,19 @@ link.classList.add("active");
 });
 
 </script>
+
+<script>
+
+if(Notification.permission !== "granted"){
+
+Notification.requestPermission();
+
+}
+
+</script>
+  
   <script src="js/theme.js"></script>
-<script src="js/prayerpage.js"></script>
   <script src="js/language.js"></script>
+  <audio id="azanSound" src="audio/azan.mp3"></audio>
 </body>
 </html>
