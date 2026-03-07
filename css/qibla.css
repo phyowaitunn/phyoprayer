@@ -1,0 +1,205 @@
+body{
+margin:0;
+font-family:sans-serif;
+background:linear-gradient(180deg,#7b4c2b,#2b1b12);
+color:white;
+}
+
+/* HEADER */
+
+.header{
+display:flex;
+align-items:center;
+padding:20px;
+font-size:22px;
+}
+
+.back{
+text-decoration:none;
+color:white;
+font-size:26px;
+margin-right:15px;
+}
+
+/* CARD */
+
+.compass-card{
+margin:20px;
+padding:30px;
+background:#3b2a21;
+border-radius:25px;
+text-align:center;
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
+
+/* DEGREE */
+
+.degree{
+font-size:34px;
+color:#e7c07a;
+margin-bottom:20px;
+font-weight:600;
+}
+
+/* COMPASS */
+
+.compass{
+position:relative;
+width:260px;
+height:260px;
+margin:auto;
+}
+
+/* OUTER RING */
+
+.compass-ring{
+
+position:absolute;
+
+width:100%;
+height:100%;
+
+border-radius:50%;
+
+background:linear-gradient(145deg,#cfa96b,#9c6a2f);
+
+display:flex;
+align-items:center;
+justify-content:center;
+
+box-shadow:
+inset 0 5px 10px rgba(255,255,255,0.2),
+inset 0 -5px 15px rgba(0,0,0,0.5),
+0 10px 20px rgba(0,0,0,0.5);
+
+}
+
+/* DIRECTION LETTERS */
+
+.north,
+.east,
+.south,
+.west{
+
+position:absolute;
+font-weight:bold;
+font-size:18px;
+color:white;
+
+}
+
+.north{ top:12px; }
+.east{ right:12px; }
+.south{ bottom:12px; }
+.west{ left:12px; }
+
+/* CLOCK CENTER */
+
+.clock{
+
+position:absolute;
+
+width:180px;
+height:180px;
+
+background:#2b1b12;
+
+border-radius:50%;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+box-shadow:
+inset 0 5px 15px rgba(0,0,0,0.7),
+0 5px 15px rgba(0,0,0,0.5);
+
+}
+
+/* CLOCK NUMBERS */
+
+.clock::before{
+
+content:"12";
+position:absolute;
+top:10px;
+left:50%;
+transform:translateX(-50%);
+font-weight:bold;
+
+}
+
+.clock::after{
+
+content:"6";
+position:absolute;
+bottom:10px;
+left:50%;
+transform:translateX(-50%);
+font-weight:bold;
+
+}
+
+/* CLOCK HANDS */
+
+.hand{
+
+position:absolute;
+bottom:50%;
+left:50%;
+transform-origin:bottom;
+
+}
+
+.hour{
+width:5px;
+height:40px;
+background:white;
+}
+
+.minute{
+width:3px;
+height:60px;
+background:white;
+}
+
+.second{
+width:2px;
+height:70px;
+background:#ff4a4a;
+}
+
+/* CENTER DOT */
+
+.center{
+
+position:absolute;
+
+width:12px;
+height:12px;
+
+background:#ff3b3b;
+
+border-radius:50%;
+
+top:50%;
+left:50%;
+
+transform:translate(-50%,-50%);
+
+}
+
+/* KAABA ICON */
+
+.kaaba{
+
+position:absolute;
+bottom:-12px;
+left:50%;
+
+transform:translateX(-50%);
+
+font-size:28px;
+
+}
