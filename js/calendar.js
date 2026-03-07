@@ -1,10 +1,24 @@
-let date = new Date()
+let currentDate = new Date()
+
+const events = {
+
+"1 Ramadan":"Ramadan Begins",
+
+"1 Shawwal":"Eid al-Fitr",
+
+"10 Dhul Hijjah":"Eid al-Adha",
+
+"9 Dhul Hijjah":"Day of Arafah"
+
+}
 
 function loadCalendar(){
 
-const day = date.getDate()
-const month = date.getMonth()+1
-const year = date.getFullYear()
+let day = currentDate.getDate()
+
+let month = currentDate.getMonth()+1
+
+let year = currentDate.getFullYear()
 
 fetch(`https://api.aladhan.com/v1/gToH?date=${day}-${month}-${year}`)
 
@@ -12,16 +26,21 @@ fetch(`https://api.aladhan.com/v1/gToH?date=${day}-${month}-${year}`)
 
 .then(data=>{
 
-const hijri = data.data.hijri
+let hijri = data.data.hijri
 
-document.getElementById("hijri").innerText =
+document.getElementById("hijriDate").innerText =
 `${hijri.day} ${hijri.month.en} ${hijri.year} H`
 
-document.getElementById("gregorian").innerText =
+document.getElementById("gregorianDate").innerText =
 `${day}/${month}/${year}`
 
-document.getElementById("monthName").innerText =
-hijri.month.en
+document.getElementById("monthTitle").innerText =
+`${hijri.month.en} ${hijri.year}`
+
+let key = `${hijri.day} ${hijri.month.en}`
+
+document.getElementById("islamicEvent").innerText =
+events[key] || ""
 
 })
 
@@ -31,25 +50,25 @@ generateDays()
 
 function generateDays(){
 
-const daysContainer = document.getElementById("calendarDays")
+let container = document.getElementById("calendarDays")
 
-daysContainer.innerHTML=""
+container.innerHTML=""
 
-const total = 30
+let today = new Date().getDate()
 
-for(let i=1;i<=total;i++){
+for(let i=1;i<=30;i++){
 
 let div = document.createElement("div")
 
 div.innerText=i
 
-if(i === new Date().getDate()){
+if(i===today){
 
-div.classList.add("today-day")
+div.classList.add("today")
 
 }
 
-daysContainer.appendChild(div)
+container.appendChild(div)
 
 }
 
@@ -57,7 +76,7 @@ daysContainer.appendChild(div)
 
 function prevMonth(){
 
-date.setMonth(date.getMonth()-1)
+currentDate.setMonth(currentDate.getMonth()-1)
 
 loadCalendar()
 
@@ -65,7 +84,7 @@ loadCalendar()
 
 function nextMonth(){
 
-date.setMonth(date.getMonth()+1)
+currentDate.setMonth(currentDate.getMonth()+1)
 
 loadCalendar()
 
